@@ -214,7 +214,7 @@ if POSTGRES_IS_AVAIL and DATABASE=='postgres':
         "default": {
             "ENGINE": "django_prometheus.db.backends.postgresql",
             'OPTIONS': {
-                'options': '-c search_path=ufkis_schema'
+                'options': '-c search_path=master_schema'
             },
             "NAME": POSTGRES_DB,
             "USER": POSTGRES_USER,
