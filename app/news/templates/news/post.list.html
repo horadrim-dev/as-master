@@ -1,0 +1,135 @@
+{% extends 'news/base.html' %}
+{% load sekizai_tags thumbnail static core_tags %}
+
+{% block app_content %}
+
+<div class="news-list-controls">
+  {% comment %} <button id="filter-toggler" class="btn-outline-secondary btn-radius btn-sm" path="{% url "news:index" %}">
+    {# html содержимое кнопки дублируется в news.js #}
+    {% if news_filter_state == "visible" %}
+      <i class="fa fa-angle-left"></i>
+    {% else %}
+      <i class="fa fa-filter"></i>
+    {% endif %}
+  </button> {% endcomment %}
+  <div class="text-right hidden-xs display-md">
+    <button class="layout-toggler btn btn-outline-secondary btn-radius btn-sm" data="grid" path="{% url "news:index" %}"
+      {% if news_list_layout == "grid" %}disabled{% endif %}
+      >
+      <i class="fa fa-th-large"></i>
+    </button>
+    <button class="layout-toggler btn btn-outline-secondary btn-radius btn-sm" data="list" path="{% url "news:index" %}"
+      {% if news_list_layout == "list" %}disabled{% endif %}
+      >
+      <i class="fa fa-th-list"></i>
+    </button>
+    {# PAGINATE_BY #}
+    <div class="dropdown btn-group " role="group" aria-label="Basic example">
+      <button type="button" class="paginate-button btn btn-outline-secondary btn-sm btn-default dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ active_paginate_by }} <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        {% for choice in PAGINATE_BY_CHOICES %}
+          <li>
+            <a class="dropdown-item" href="{% url "news:index" %}?{% param_replace page="" count=choice %}">{{ choice }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr class="space m" />
+
+{% comment %} <div class="sidebar-page-container">
+  <div class="auto-container"> {% endcomment %}
+    <div class="row">
+      <div id="news-content" class="{% if news_filter_state == "hidden" %}col-md-12{% else %}col-md-9{% endif %}">
+        {# классы настроены так, чтобы при сворачивании фильтра этот блок расширялся #}
+
+        {% if news_list_layout == "grid" %}
+        <div class="news-maso-grid">
+            <div class="row">
+                {% for obj in object_list %}
+                <div class="news-maso-item col-lg-4 col-md-6">
+                  {% include 'news/includes/post.item.vertical.html' %}
+                </div>
+                {% empty %}
+                <p>Ничего не найдено.</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% elif news_list_layout == "list" %}
+          <div class="grid-list one-row-list">
+            <div class="grid-box row">
+                <div class="grid-item col-md-12">
+                {% for obj in object_list %}
+                    {% include 'news/includes/post.item.horizontal.html' %}
+                {% comment %} <hr class="space m" /> {% endcomment %}
+                {% empty %}
+                <p>Ничего не найдено.</p>
+                {% endfor %}
+                </div>
+            </div>
+          </div>
+        {% endif %}
+        <div class="clear"></div>
+        {% include 'core/includes/pagination.html' %}
+      </div>
+
+      <div id="news-sidebar" class="{% if news_filter_state == "hidden" %}d-none{% else %}col-md-3{% endif %}">
+        <aside class="sidebar blog-sidebar">
+          {% include './includes/filter.html' %}
+        </aside>
+      </div>
+
+
+    {% comment %} </div>
+  </div> {% endcomment %}
+</div>
+
+
+
+
+
+
+
+              {% comment %} <div class="col-lg-8">
+                  <div class="news-block-one style-two">
+                      <div class="inner-box">
+                          <div class="image"><a href="blog-details.html"><img src="assets/images/resource/image-84.jpg" alt=""></a></div>
+                          <div class="lower-content">
+                              <ul class="post-mate">
+                                  <li><i class="far fa-clock"></i> 20 Oct, 2021 </li>
+                                  <li><i class="far fa-user"></i> by Kevin Martin</li>
+                              </ul>
+                              <div class="read-more">
+                                  <a href="blog-details.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+                              </div>
+                              <h4><a href="blog-details.html">Take a Driving Lessons with a Private Tutor</a></h4>
+                              <div class="text">Lorem ipsum is simply free dolor sit amet, consecte notted. Vestibulum tincidunt arcu vel nisl elementum, a pharetra eros ultrices. Vestibulum tincidunt arcu vel nisl elementum, a pharetra eros ultrices.</div>
+                              
+                          </div>
+                      </div>
+                  </div>
+                  <div class="news-block-one style-two">
+                      <div class="inner-box">
+                          <div class="image"><a href="blog-details.html"><img src="assets/images/resource/image-85.jpg" alt=""></a></div>
+                          <div class="lower-content">
+                              <div class="read-more">
+                                  <a href="blog-details.html"><i class="fas fa-long-arrow-alt-right"></i></a>
+                              </div>
+                              <ul class="post-mate">
+                                  <li><i class="far fa-clock"></i> 20 Oct, 2021 </li>
+                                  <li><i class="far fa-user"></i> by Kevin Martin</li>
+                              </ul>
+                              <h4><a href="blog-details.html">Mauris quis odio Varius, Varius Lacus in, Aliquam</a></h4>
+                              <div class="text">Lorem ipsum is simply free dolor sit amet, consecte notted. Vestibulum tincidunt arcu vel nisl elementum, a pharetra eros ultrices. Vestibulum tincidunt arcu vel nisl elementum, a pharetra eros ultrices.</div>                                
+                          </div>
+                      </div>
+                  </div>
+              </div>  {% endcomment %}
+                  
+
+
+{% endblock %}

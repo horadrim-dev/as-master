@@ -1,0 +1,8 @@
+{% load cms_tags %}
+
+{% url 'contact:index' as contact_url %}
+{% if contact_url %} {# Если вьюха еще не зарегистрирована - кнопка не будет показана #}
+<div class="link-btn">
+    <a href="{{ contact_url }}" class="contact-button btn-style-two btn btn-outline-primary">Запись на обучение</a>
+</div>
+{% endif %}

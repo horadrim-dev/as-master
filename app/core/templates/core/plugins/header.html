@@ -1,0 +1,24 @@
+<div class="
+    {% if layout == "bold-line" or layout == "no-line" %}
+    title-base 
+    {% elif layout == "thin-line"%}
+    title-modern
+    {% endif %}
+
+    text-{{ align }}
+    ">
+
+    {% if subtitle_position == 'top' %}
+        <p>{% if subtitle %}{{ subtitle }}{% endif %}</p>
+    {% endif %}
+    <h2>{{ title }}</h2>
+
+    {% if subtitle_position == 'bottom' %}
+        <p>{% if subtitle %}{{ subtitle }}{% endif %}</p>
+    {% endif %}
+
+    {% if layout != "no-line" %}
+    <hr>
+    {% endif %}
+
+</div>

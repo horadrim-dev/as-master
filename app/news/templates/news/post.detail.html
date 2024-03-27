@@ -1,0 +1,217 @@
+{% extends 'news/base.html' %}
+{% load cms_tags core_tags sekizai_tags static thumbnail news_tags %}
+
+{% comment %} {% block app_content %}
+
+  <div class="row">
+
+    <div class="col ftco-animate">
+
+      {% render_model_block object %}
+
+        <h2 class="mb-3">{{ object.title }}</h2>
+
+        {% if object.image and not object.image_position == 'hide' %}
+        <div class="object-image 
+                {% if object.image_position == 'left'%}
+                w-50 float-start me-3 mb-3
+                {% elif object.image_position == 'right'%}
+                w-50 float-end ms-3 mb-3
+                {% elif object.image_position == 'stretch' %}
+                w-100 mb-3
+                {% endif %}
+            " 
+            style="height:200px;">
+            <img src="{{object.image.url}}" alt="{{object.title}}" class="img-fluid w-100 h-100" style="object-fit:cover;" >
+        </div>
+        {% endif %}
+
+        {{ object.text | safe }}
+
+      {% endrender_model_block %}
+  </div> {% endcomment %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block app_content %}
+
+    {% comment %}{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/scripts/flexslider/flexslider.css' %}">{% endaddtoblock %}
+    {% addtoblock "js" %}<script src="{% static 'core/scripts/flexslider/jquery.flexslider-min.js' %}"></script>{% endaddtoblock %}
+
+     <div class="news-item detail">
+        {% if ADMIN_MODE or EDIT_MODE %}
+            <div class="admin-panel">
+                {% if ADMIN_MODE %}
+                    <div id="publish-post">
+                        <form action="{% url "news:admin" %}" data="post={{ object.id }}&action=toggle-publish-state">
+                            {% csrf_token %}
+                            <button class="btn btn-border btn-lg " type="submit">
+                                {% if object.published %}
+                                <i class="fa fa-eye-slash"></i>Снять с публикации
+                                {% else %}
+                                <i class="fa fa-eye"></i>Опубликовать
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
+                {% if EDIT_MODE %}
+                    <div class="actions">
+                        {% render_model_block object %}
+                            <i class="fa fa-gear"></i>
+                        {% endrender_model_block %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+        <div class="post-attributes">
+            <div>
+                <span><i class="fa fa-calendar"></i> {{ object.published_at }}</span>
+                {% if object.category %}
+                    <span><i class="fa fa-bookmark"></i> <a href="{% url "news:index" %}?category={{ object.category.id }}">{{ object.category.title }}</a></span>
+                {% endif %}
+            </div>
+            
+            {% render_share_buttons url=object.get_absolute_url title=object.title image_src=object.thumb_src description=object.description|striptags|truncatechars_html:150 style="list" %}
+        </div>
+        <hr class="b space m" />
+        
+        {% render_placeholder post.content 640 %}
+            
+        <div class="clear"></div>
+
+        <hr class="b space m" />
+        <div class="tag-row">
+            <div class="taggit-labels taggit-list">
+                {% for tag in object.tags.all %}
+                <span class="taggit-tag item-tag">
+                    <a href="{% url "news:index" %}?tags={{ tag.name | prepare_tag_name }}">
+                        {{tag}}
+                    </a>
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+    </div> {% endcomment %}
+
+{% comment %} 
+    <div class="title-base text-left">
+        <h1>Другие новости</h1>
+    </div>
+
+    <div class="flexslider carousel outer-navs">
+        <ul class="slides">
+            {% for obj in other_objects %}
+                <li>
+                    {% include 'news/includes/post.item.vertical.html' %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>              {% endcomment %}
+
+    {% addtoblock "css" %}<link type="text/css" rel="stylesheet" href="{% static 'core/components/lightgallery/css/lightgallery.min.css'%}" />{% endaddtoblock %}
+    {% addtoblock "css" %}<link type="text/css" rel="stylesheet" href="{% static 'core/components/lightgallery/css/lg-transitions.min.css'%}" />{% endaddtoblock %}
+    {% addtoblock "css" %}<link type="text/css" rel="stylesheet" href="{% static 'core/components/lightgallery/css/lg-fb-comment-box.min.css'%}" />{% endaddtoblock %}
+
+    {% addtoblock "js" %}<script defer type="text/javascript" src="{% static 'core/components/lightgallery/js/lightgallery.min.js' %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script defer type="text/javascript" src="{% static 'core/components/lightgallery/js/lg-thumbnail.min.js' %}"></script>{% endaddtoblock %}
+    {% addtoblock "js" %}<script defer type="text/javascript" src="{% static 'core/components/lightgallery/js/lg-video.min.js' %}"></script>{% endaddtoblock %}
+
+    
+    {% render_model_block object %}
+    <div class="news-item detail news-block-three blog-single-post">
+        <div class="inner-box">
+            <div class="content">
+                <ul class="post-meta">
+                    <li><i class="fa fa-calendar"></i> {{ object.published_at.date }}</li>
+                    {% if object.category %}
+                    <li><i class="fa fa-bookmark"></i> <a href="{% url "news:index" %}?category={{ object.category.id }}">{{ object.category.title }}</a></li>
+                    {% endif %}
+                </ul>
+
+                {% spaceless %}
+                <div id="news-detail-gallery">
+                    {% if object.cover_image %}
+                    <a href="{{ object.cover_image.url }}" >
+                        <img class="img-fluid" src="{{ object.thumb_src }}">
+                    </a>
+                    {% endif %}
+                    {% for photo in object.images %}
+                        <a href="{{ photo.image.url }}">
+                            {% comment %} <img src="{% thumbnail photo.image "117x117" upscale crop %}" /> {% endcomment %}
+                            <img src="{{ photo.thumb_src }}" />
+                        </a>
+                    {% endfor %}
+                </div>
+                {% endspaceless %}
+
+                {% for video in object.videos %}
+                    {% if video.external_url %}
+                        <div class="video">
+                            <iframe src="{{ video.external_url }}"  
+                                width=360 height=240
+                                frameborder="0" allowfullscreen="true"
+                            ></iframe>
+                        </div>
+                    {% else %}
+                        <div class="video">
+                            <video controls 
+                                width=360 height=240
+                                {% comment %} {% if instance.poster %} poster="{{ instance.poster.url }}"{% endif %}> {% endcomment %}
+                                {% with video.videofile.extension as ext %}
+                                    <source src="{{ video.videofile.url }}" type="video/{{ ext }}">
+                                {% endwith %}
+                            </video>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <div class="clearfix"></div>
+
+                {% comment %} </div> {% endcomment %}
+                {% if object.description %}
+                    <div class="text">{{ object.description|safe}}</div>
+                {% endif %}
+            </div>
+            <div class="post-tag">
+                <div>
+                    {% comment %} <span class="tag-title">Теги</span> {% endcomment %}
+                    <div class="tag-row">
+                        <div class="taggit-labels taggit-list">
+                            {% for tag in object.tags.all %}
+                            <span class="taggit-tag item-tag">
+                                {% comment %} <i class="fa fa-tag"></i> {% endcomment %}
+                                <a href="{% url "news:index" %}?tags={{ tag.name | prepare_tag_name }}">
+                                    {{tag}}
+                                </a>
+                            </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                {% render_share_buttons url=object.get_absolute_url title=object.title image_src=object.thumb_src description=object.description|striptags|truncatechars_html:150 style="list" %}
+
+            </div>
+        </div>
+    </div>
+
+    {% endrender_model_block %}
+
+
+    {% addtoblock "js" %}
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            $("#news-detail-gallery").lightGallery({
+            plugins: [lgVideo],
+            mode: "lg-slide",
+            speed: 500,
+            margin: 100,
+            });
+        });
+        </script>
+    {% endaddtoblock %}
+
+{% endblock %}

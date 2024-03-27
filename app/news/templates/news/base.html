@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load cms_tags sekizai_tags static %}
+
+{% comment %} {% block title %}
+
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+
+  {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'news/css/news.css' %}">{% endaddtoblock %} 
+
+  {% addtoblock "js" %}<script  src="{% static 'core/js/isotope.min.js' %}"></script>{% endaddtoblock %}
+  {% addtoblock "js" %}<script  src="{% static 'core/js/imagesloaded.min.js' %}"></script>{% endaddtoblock %}
+  {% addtoblock "js" %}<script src="{% static 'news/js/news.js' %}"></script>{% endaddtoblock %} 
+
+  {% if ADMIN_MODE %}
+    {% addtoblock "js" %}<script src="{% static 'news/js/news-admin.js' %}"></script>{% endaddtoblock %} 
+  {% endif %}
+
+  {% include 'core/includes/breadcrumbs.html' %}
+
+  {% static_placeholder '[news] top' %}
+
+  <section class="news-container">
+    <div class="container">
+      {% block app_content %}
+      {% endblock %}
+    </div>
+  </section>
+
+  {% static_placeholder "[news] bottom" %}
+
+{% endblock %}

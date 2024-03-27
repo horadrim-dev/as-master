@@ -1,0 +1,228 @@
+@media only screen and (max-width: 7000px){
+	.page-wrapper{
+		overflow: hidden;
+	}
+	
+}
+
+@media only screen and (max-width: 1400px){
+
+}
+
+@media only screen and (max-width: 1299px){
+
+}
+
+@media only screen and (max-width: 1199px){
+	.banner-section .banner-slider-nav {
+		display: none;
+	}
+	.header-top .right-column {
+	    display: none;
+	}
+	.header-top .left-column {
+		width: 100%;
+		justify-content: center;
+	}
+	.banner-section .content-box h1 {
+		font-size: 60px;
+		line-height: 70px;
+	}
+	.two-column-section .video-column .image {
+		display: block;
+	}
+	.two-column-section .video-column .video-box {
+		position: relative;
+		background: transparent !important;
+	}
+	.two-column-section .video-column .image img {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 1139px){
+	/* Default */
+	.main-header .nav-outer .main-menu,
+	.sticky-header{
+		display: none !important;
+	}
+	.nav-outer .mobile-nav-toggler{
+		display: block;
+	}
+	.main-header.header-style-two .header-upper .inner-container:before {
+		display: none;
+	}	
+	.main-header.header-style-two .header-upper .inner-container {
+		padding: 0;
+	}
+}
+
+@media only screen and (min-width: 992px){
+
+}
+
+@media only screen and (max-width: 991px){
+	.banner-section.style-two .content-box h1,
+	.banner-section .content-box h1 {
+		font-size: 50px;
+		line-height: 60px;
+	}
+	.about-section .image {
+		text-align: left;
+		margin-top: 30px;
+	}
+	section.funfacts-section:before {
+		height: auto;
+		bottom: -300px;
+	}
+	.video-box {
+		margin-top: 0;
+	}
+	section.experience-section .image {
+		margin-bottom: 60px;
+	}
+	section.experience-section .shape-one {
+		opacity: 0;
+	}
+	section.experience-section {
+		padding-bottom: 90px;
+	}
+	section.appointment-section .contact-form {
+		margin-left: 0;
+		border-radius: 10px;
+		margin-top: 30px;
+	}
+	.video-box-two {
+		position: relative;
+		left: 0;
+		border-radius: 10px;
+	}
+	section.appointment-section {
+		padding-bottom: 120px;
+	}	
+	.pricing-block .inner-box,
+	.course-block-one .inner-box,
+	.news-block-one .inner-box {
+		/* max-width: 420px; */
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.text-widget {
+		margin-left: 0;
+	}
+	.funfact-block-one:nth-child(even):after {
+		opacity: 0;
+	}
+	.pricing-block .inner-box {
+		max-width: 370px;
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	.why-choose-section .image-block {
+		margin-bottom: 30px;
+		display: inline-block;
+	}
+	.pricing-block .inner-box {
+		max-width: 370px;
+		margin-left: auto;
+		margin-right: auto;
+	}	
+	.why-choose-section .image-block {
+		margin-bottom: 30px;
+		display: inline-block;
+	}	
+	.footer-bottom .wrapper-box {
+		justify-content: flex-start;
+	}	
+	.footer-bottom .wrapper-box .copyright {
+		width: 100%;
+	}	
+	.footer-bottom .wrapper-box .logo {
+		width: 100%;
+	}
+	.why-choose-section .list {
+		margin-bottom: 30px;
+	}
+	.banner-section.style-two .swiper-slide:before {
+		width: 100%;
+	}
+	section.experience-section .image img {
+		float: inherit;
+	}
+	.contact-widget-two img,
+	.course-details .image img {
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 768px){
+	.main-menu .navigation > li > ul,
+	.main-menu .navigation > li > ul > li > ul{
+		display:block !important;
+		visibility:hidden;
+		opacity:0;
+	}
+}
+
+@media only screen and (max-width: 767px){	
+	br {
+		display: none;
+	}
+	.main-header .header-upper .navbar-right {
+		display: none;
+	}
+	.course-block-two .lower-content {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+	.banner-section.style-two .content-box h1,
+	.banner-section .content-box h1 {
+		font-size: 40px;
+		line-height: 50px;
+	}
+	.cta-two h4 {
+		font-size: 40px;
+		line-height: 50px;
+	}
+}
+
+@media only screen and (max-width: 575px){
+	.why-choose-section .list li {
+		width: 100%;
+	}
+	.comments-area .comment {
+		padding-left: 0;
+	}	
+	.comments-area .comment-box .author-thumb {
+		position: relative;
+	}	
+	.sidebar-page-container .author-box {
+		padding: 30px;
+		text-align: center;
+	}	
+	.sidebar-page-container .author-box .image {
+		position: relative;
+		left: 0;
+		top: 0;
+		margin: 0 auto;
+		margin-bottom: 30px;
+	}	
+	.post-tag .social-icon {
+		margin-top: 15px;
+	}	
+	
+}
+
+
+@media only screen and (max-width: 350px) {
+
+}
+
+
+
+
+
+
+
+
+

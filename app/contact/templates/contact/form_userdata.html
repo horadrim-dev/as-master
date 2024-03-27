@@ -1,0 +1,81 @@
+{% extends 'contact/form.html' %}
+{% load cms_tags sekizai_tags static i18n %}
+
+{% block form_content %}
+    {% comment %} {{ wizard.form }} {% endcomment %}
+        <div class="row g-3">
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 text-right">
+                        <p class="field-label {% if form.lastname.field.required %}required{% endif %}">
+                            {{ form.lastname.label_tag }}
+                        </p>
+                    </div>
+                    <div class="col-sm-9">{{ form.lastname }}{{ form.lastname.errors }}</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 text-right">
+                        <p class="field-label {% if form.firstname.field.required %}required{% endif %}">
+                            {{ form.firstname.label_tag }}
+                        </p>
+                    </div>
+                    <div class="col-sm-9">{{ form.firstname }}{{ form.firstname.errors }}</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 text-right">
+                        {{ form.middlename.label_tag }}
+                        {% if form.middlename.field.required %}<i class="required"></i>{% endif %}
+                    </div>
+                    <div class="col-sm-9">{{ form.middlename }}{{ form.middlename.errors }}</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 text-right">
+                        {{ form.email.label_tag }}
+                        {% if form.email.field.required %}<i class="required"></i>{% endif %}
+                    </div>
+                    <div class="col-sm-9">{{ form.email }}{{ form.email.errors }}</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row align-items-center">
+                    <div class="col-sm-3 text-right">
+                        {{ form.phone.label_tag }}
+                        {% if form.phone.field.required %}<i class="required"></i>{% endif %}
+                    </div>
+                    <div class="col-sm-9">{{ form.phone }} {{ form.phone.errors }}</div>
+                </div>
+            </div>
+            <div class="grid-item col-md-12">
+                <div class="col-sm-3 text-right"><p></p></div>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        {{ form.agree_pd }}
+                        {% if form.agree_pd.field.required %}<i class="required"></i>{% endif %}
+                        {{ form.agree_pd.label_tag }}
+                        {{ form.agree_pd.errors }}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+{% block form_bottom %}
+    <div class="row mt-3">
+        <div class="col-sm-2">
+            {% if wizard.steps.prev %}
+            <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="btn btn-outline-primary btn-lg w-100">Назад</button>
+            {% endif %}
+        </div>
+        <div class="col-sm-10">
+            <input type="submit" value="Далее" class="btn btn-lg btn-primary w-100"/>
+        </div>
+    </div>
+    {% comment %} <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button> {% endcomment %}
+{% endblock %}

@@ -1,0 +1,125 @@
+{% load static cms_tags menu_tags sekizai_tags easy_thumbnails_tags %}
+
+{% comment %} <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+<footer class="footer-base">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 footer-center text-left">
+                    <img class="navbar-brand-logo" src="{% thumbnail site_settings.logo 200x250 upscale %}" />
+                    <span class="text-l">{{ site_settings.title }} {{ site_settings.subtitle }}</span>
+                    <br><br>
+                    <p class="text-m">{{ site_settings.address }}</p>
+                    <div class="tag-row text-m">
+                        <span>{{ site_settings.email }}</span>
+                        <span>{{ site_settings.phone }}</span>
+                    </div>
+                    <br>
+                    <div class="btn-group social-group btn-group-icons">
+                        {% for social in site_settings.socials %}
+                        <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
+                            <i class="fa fa-{{social.icon}}"></i>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="col-md-4 footer-left text-center">
+                    <h3>Меню</h3>
+                    <ul class="list-unstyled">
+                    {% show_menu 0 0 100 100 %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row copy-row">
+            <div class="col-md-12 copy-text">
+                ©<script>document.write(new Date().getFullYear());</script>
+            </div>
+        </div>
+    </div>
+
+</footer> {% endcomment %}
+
+<footer class="main-footer">
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+                
+                <!--Column-->
+                <div class="column col-lg-2 col-md-6">
+                    <div class="widget about-widget">
+                        <ul class="social-links">
+                            {% for social in site_settings.socials %}
+                            <li>
+                                <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
+                                    <i class="fab fa-{{social.icon}}"></i>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Column-->
+                <div class="column col-lg-3 col-md-6">
+                    <div class="widget links-widget">
+                        <div class="widget-content">
+                            <ul>
+                                {% show_menu 0 0 100 100 %}
+                            </ul>                                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Column-->
+                <div class="column col-lg-4 col-md-6">
+                    <div class="widget text-widget">                        
+                        <div class="widget-content">
+                            <div class="text">{{ site_settings.address }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Column-->
+                <div class="column col-lg-3 col-md-6">
+                    <div class="widget contact-widget">                        
+                        <div class="widget-content">
+                            <div class="text">
+                                {{ site_settings.phone }}
+                                <br>
+                                <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
+                                <br>
+                                <i class="flaticon-clock"></i> {{ site_settings.schedule }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="auto-container">
+            <div class="wrapper-box">
+                <div class="copyright">
+                    <div class="text">© Copyright 2024</div>
+                </div>
+                <div class="logo">
+                    <a href="/">
+                        {% include 'core/brand.html' with bg="dark" %}
+                    </a>
+                </div>
+                {% comment %} <div class="footer-menu">
+                    <ul>
+                        <li><a href="#">Terms & Condition </a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</footer>

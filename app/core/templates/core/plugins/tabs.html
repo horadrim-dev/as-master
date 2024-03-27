@@ -1,0 +1,34 @@
+{% load cms_tags sekizai_tags static %}
+ 
+<div id="tabs-{{ id }}" class="mb-3">
+	<ul class="nav nav-tabs {% if instance.justified %}nav-justified{% endif %} mb-3" 
+		role="tablist"
+		>
+		{% for plugin in instance.child_plugin_instances %}
+		<li class="nav-item" role="presentation">
+			<a class="nav-link {% if instance.num_auto_open == forloop.counter %}active{% endif %}" 
+				id="tabs-{{ id }}-tab-{{ forloop.counter }}" 
+				data-bs-toggle="tab" 
+				data-bs-target="#tabs-{{ id }}-panel-{{ forloop.counter }}" 
+				type="button" 
+				role="tab" 
+				aria-controls="tabs-{{ id }}-panel-{{ forloop.counter }}" 
+				aria-selected="{% if instance.num_auto_open == forloop.counter %}true{% else %}false{% endif %}"
+				>
+				{{ plugin.name }}
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	<div class="tab-content" id="tabs-{{ id }}-content">
+		{% for plugin in instance.child_plugin_instances %}
+		<div class="tab-pane fade {% if instance.num_auto_open == forloop.counter %}show active{% endif %}" 
+			id="tabs-{{ id }}-panel-{{ forloop.counter }}" 
+			role="tabpanel" 
+			aria-labelledby="tabs-{{ id }}-tab-{{ forloop.counter }}"
+			>
+				{% render_plugin plugin %}
+			</div>
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,42 @@
+{% load static sekizai_tags %}
+
+{% addtoblock "css" %}<link href="{% static 'core/css/main-banner.css' %}" rel="stylesheet">{% endaddtoblock %}
+
+<section class="main-banner">
+    <div class="main-banner__item">
+        <div class="main-banner__bg" style="background-image: url({% static 'core/images/main-banner/slider-2-1.png' %});"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-banner__content">
+                        <h5 class="main-banner__sub-title"><span>Добро пожаловать в нашу автошколу</span></h5>
+                        <!-- slider-sub-title -->
+                        <h2 class="main-banner__title">
+                            Автошкола "Мастер"
+                            <span class="main-banner__title__image"><img src="{% static 'core/images/main-banner/slider-2-shape-1.png' %}" ></span>
+                        </h2>
+                        <!-- slider-title -->
+                        <h3>Гарантируем качественное обучение в соответствии с государственной программой подготовки водителей</h3>
+                        <div class="mt-4">
+                            {% include 'core/includes/contact-button.html' %}
+                        </div>
+                        <!-- arrows -->
+                        <div class="arrows-wrapper">
+                            <div class="arrows"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-banner__layer">
+            <img src="{% static 'core/images/main-banner/slider-2-shape-2.png' %}" >
+            <img class="main-banner__layer__shape" src="{% static 'core/images/main-banner/slider-2-shape-3.png' %}" >
+        </div>
+        <div class="main-banner__layer-two">
+            <img class=" lightbox-image" src="{% static 'core/images/main-banner/solaris.png' %}" >
+        </div>
+        {% comment %} <div class="main-banner__layer-three">
+            <img src="{% static 'core/images/main-banner/konus-2.png' %}" >
+        </div> {% endcomment %}
+    </div>
+</section>

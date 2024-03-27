@@ -1,0 +1,20 @@
+{% load cms_tags sekizai_tags static %}
+
+{% addtoblock "css" %}<link href="{% static 'steps/css/steps.css' %}" rel="stylesheet">{% endaddtoblock %}
+
+<div class="steps">
+	{% for plugin in instance.child_plugin_instances %}
+	<div class="step">
+		<div class="step-label">
+			{% comment %} <p class="step-label-text">Шаг</p> {% endcomment %}
+			<span class="step-label-number">{{ forloop.counter }}</span>
+			<svg viewBox="0 0 161 186" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M161 139.5V46.5L80.5 0L0 46.5V139.5L80.5 186L161 139.5Z" fill=""></path>
+			</svg>
+		</div>
+		<div class="step-text">
+			{% render_plugin plugin %}
+		</div>
+	</div>
+	{% endfor %}
+</div>

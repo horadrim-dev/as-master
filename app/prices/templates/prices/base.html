@@ -1,0 +1,22 @@
+{% extends 'normal-page.html' %}
+{% load cms_tags sekizai_tags static %}
+
+{% comment %} {% block title %}
+
+{% endblock %} {% endcomment %}
+
+
+{% block content %}
+
+  {% static_placeholder '[prices] top' %}
+
+  <section class="prices-container">
+    <div class="container">
+      {% block app_content %}
+      {% endblock %}
+    </div>
+  </section>
+
+  {% static_placeholder "[prices] bottom" %}
+
+{% endblock %}

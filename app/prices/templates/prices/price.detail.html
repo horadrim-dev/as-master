@@ -1,0 +1,37 @@
+{% extends 'prices/base.html' %}
+{% load cms_tags core_tags sekizai_tags static thumbnail %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+
+{% block app_content %}
+
+
+    <div class="prices-item detail ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    {% render_placeholder object.placeholder "640" %}
+                </div>
+                <div class="col-lg-4 course-block-one">
+                    {% render_model_block object %}
+                    <div class="image"><img src="{{ object.thumb_src }}" alt=""></div>
+                    <div class="lower-content">
+                        <div class="text">
+                            {{ object.description | safe }}
+                        </div>
+                        <p class="price fs-4">Стоимость: <span>{{ object.value }}</span></p>
+                        <p class="small-text">Стоимость указана ориентировочно, актуальную цену уточняйте по телефону</p>
+                        <div class="text-center">
+                            {% include 'core/includes/contact-button.html' %}
+                        </div>
+                    </div>
+                    {% endrender_model_block %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

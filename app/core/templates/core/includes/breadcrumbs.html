@@ -1,0 +1,22 @@
+{% load static menu_tags cms_tags %}
+
+<section class="page-title" style="background-image: url({% static 'core/images/background/bg-6.jpg' %});">
+    <div class="auto-container">
+        <div class="content-box">
+            <div class="content-wrapper">
+                <ul class="bread-crumb">
+                    {% show_breadcrumb 0 'core/includes/breadcrumb.html' 0 %}
+                </ul>
+                <div class="title">
+                    <h1>
+                        {% if page_title %}
+                            {{ page_title }}
+                        {% else %}
+                            {% page_attribute "page_title" %}
+                        {% endif %}
+                    </h1>
+                </div>
+            </div>                    
+        </div>
+    </div>
+</section>

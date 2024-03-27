@@ -1,0 +1,30 @@
+{% load static sekizai_tags cms_tags %}
+
+<div class="prices-plugin-container">
+  <div class="container">
+    <div class="row">
+      {% for object in object_list %}
+      <div class="col-lg-3 course-block-one">
+        {% render_model_block object %}
+          <div class="inner-box wow fadeInUp" data-wow-duration="1500ms">
+              <a href="{{ object.get_absolute_url }}">
+                <div class="image"><img src="{{ object.thumb_src }}" alt=""></div>
+              </a>
+              <div class="lower-content">
+                  {% comment %} <div class="instructor-thumb"><img src="assets/images/resource/image-6.jpg" alt=""></div> {% endcomment %}
+                  {% comment %} <div class="designation">{{ object.subtitle }}</div> {% endcomment %}
+                  {% comment %} <div class="name">{{ object.subtitle }}</div> {% endcomment %}
+                  <h3><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h3>
+                  {% comment %} <div class="text">{{ object.text }}</div> {% endcomment %}
+                  <p class="price">Стоимость: <span>{{ object.value }}</span></p>
+                  <p class="small-text">Стоимость указана ориентировочно, актуальную цену уточняйте по телефону</p>
+                  {% comment %} <div class="link-btn"><a href="#" class="btn-style-two">Стоимость: <span>{{ object.value }}</span></a></div> {% endcomment %}
+                  <div class="link-btn"><a href="{{ object.get_absolute_url }}" class="btn-style-two">Подробнее</a></div>
+              </div>
+          </div>
+        {% endrender_model_block %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

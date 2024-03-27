@@ -1,0 +1,67 @@
+{% load static sekizai_tags %}
+
+{% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{% static 'core/css/owl.css' %}">{% endaddtoblock %}
+{% comment %} {% addtoblock "css" %}<style>
+  #reviews-slider .owl-dots .owl-dot{
+    background: #D9D8D8;
+  }
+  #reviews-slider .owl-dots .owl-dot.active{
+    background: #01a5f9;
+  }
+  #reviews-slider .user-img i{
+    color:#4a7ebc;
+  }
+</style>{% endaddtoblock %} {% endcomment %}
+
+{% addtoblock "js" %}<script src="{% static 'core/js/owl.js' %}"></script>{% endaddtoblock %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("#reviews-slider").owlCarousel({
+        autoplay: true,
+        autoplayHoverPause:true,
+        center: true,
+        loop: true,
+        touchDrag: true,
+        mouseDrag: false,
+        smartSpeed: 1000,
+        margin: 30,
+        stagePadding: 0,
+        nav: false,
+        navText: ['<span class="bi bi-arrow-left">', '<span class="bi bi-arrow-right">'],
+        responsive: { 0 :{ items: 1 }, 
+                    480 :{ items : 1 }, 
+                    600 :{ items : 2 }, 
+                    768 :{ items : 2 }, 
+                    992:{ items : 2 }, 
+                    1200:{ items : 2 }},
+    });
+	});
+</script>
+{% endaddtoblock %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div id="reviews-slider" class="owl-carousel">
+        {% for review in reviews %}
+        <div class="testimonials">
+            <div class="inner-box">
+                <div class="text">{{ review.text }}</div>                    
+                <div class="author-info">
+                    <div class="name">
+                      <i class="fa fa-user icon"></i> {{ review.author }}
+                    {% comment %} <div class="designation">Student</div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="text-center">
+        <a href="#" class="btn-style-two ">Оставить отзыв</a>
+      </div>
+    </div>
+  </div>
+</div>

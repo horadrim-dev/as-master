@@ -1,0 +1,9 @@
+{% load easy_thumbnails_tags %}
+
+<img class="navbar-brand-logo" src="{% thumbnail site_settings.logo 67x60 upscale %}" />
+<div class="navbar-brand-text">
+    <div class="navbar-brand-title">{{ site_settings.title }}</div>
+    {% if site_settings.subtitle %}
+    <div class="navbar-brand-subtitle {% if bg == "dark" %}white{% endif %}">{{ site_settings.subtitle }}</div>
+    {% endif %}
+</div>

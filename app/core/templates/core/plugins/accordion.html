@@ -1,0 +1,33 @@
+{% load cms_tags sekizai_tags static %}
+ 
+<div id="accordion-{{ id }}"
+	 class="accordion {% if instance.hide_borders %}accordion-flush{% endif %} mb-3" 
+	>
+	{% for plugin in instance.child_plugin_instances %}
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="accordion-{{ id }}-header-{{ forloop.counter }}">
+			<button class="accordion-button {% if instance.num_auto_open != forloop.counter and not instance.open_all %}collapsed{% endif %}" 
+				type="button" 
+				data-bs-toggle="collapse" 
+				data-bs-target="#accordion-{{ id }}-collapse-{{ forloop.counter }}" 
+				aria-expanded="{% if instance.num_auto_open == forloop.counter or instance.open_all %}true{% else %}false{% endif %}"
+				aria-controls="accordion-{{ id }}-collapse-{{ forloop.counter }}"
+				>
+				{{ plugin.name }}
+			</button>
+		</h2>
+		<div id="accordion-{{ id }}-collapse-{{ forloop.counter }}" 
+			class="accordion-collapse 
+				   collapse 
+				   {% if instance.num_auto_open == forloop.counter or instance.open_all %}show{% endif %}
+				   "
+			aria-labelledby="accordion-{{ id }}-header-{{ forloop.counter }}" 
+			{% if instance.close_others %}data-bs-parent="#accordion-{{ id }}"{% endif %}
+			>
+			<div class="accordion-body">
+				{% render_plugin plugin %}
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>

@@ -1,0 +1,233 @@
+{% load static menu_tags easy_thumbnails_tags sekizai_tags  %}
+
+{% comment %} <header class="fixed-top scroll-change" data-menu-height="{% if request.user.is_authenticated or "edit" in request.GET %}199{% else %}153{% endif %}">
+    <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
+        <div class="navbar-middle scroll-hide">
+            <div class="container">
+                <div class="row vertical-row">
+                    <div class="col-xs-12 col-md-5 col-lg-4">
+                        <a class="navbar-brand" href="/">
+                            <img class="navbar-brand-logo" src="{% thumbnail site_settings.logo 40x50 upscale crop %}" />
+                            <div class="navbar-brand-title">
+                                <span>{{ site_settings.title }}</span>
+                                <span>{{ site_settings.subtitle }}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-8 col-md-4 col-lg-6 hidden-sm">
+                        <form action="/search" method="get" class="navbar-form search-input" role="search">
+                            <div class="form-group">
+                                <input type="text" name="q" class="form-control" placeholder="Найти..." {% if "q" in request.GET %}value={{request.GET.q}}{% endif %}>
+                            </div>
+                            <button type="submit" class="search-button btn btn-default btn-border"><span class="fa fa-search"></span></button>
+                        </form>
+                    </div>
+                    <div class="col-xs-4 col-md-3 col-lg-2 hidden-sm">
+                        <ul class="navbar-links text-center">
+                            <li><a href="#" id="specialButton" class="btn-text" alt="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ" title="ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ"><i class="fa fa-eye"></i> Версия для слабовидящих</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-main">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="priem-button btn btn-lg btn-border visible-sm" type="button">
+                        Виртуальная приемная
+                    </button>
+                    <div class="search-box-menu visible-sm">
+                        <button type="button" class="btn btn-default btn-search ">
+                            <span class="fa fa-search"></span>
+                        </button>
+                        <form action="/search" method="get" class="navbar-form search-input" role="search">
+                            <div class="search-box scrolldown">
+                                <input type="text" name="q" class="form-control" placeholder="Найти..." {% if "q" in request.GET %}value={{request.GET.q}}{% endif %}>
+                            </div>
+                        </form>
+                    </div>
+                    <button type="button" class="navbar-toggle">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <div class="clear"></div>
+                <div class="collapse navbar-collapse">
+                    <div class="nav navbar-nav navbar-right">
+                        {% url 'contact:index' as contact_url %}
+                        {% if contact_url %} {# Если вьюха еще не зарегистрирована - кнопка не будет показана #}
+                        <a href="{% url 'contact:index' %}" class="priem-button btn btn-lg btn-border hidden-sm" type="button">
+                            Виртуальная приемная
+                        </a>
+                        {% endif %}
+                    </div>
+                    <ul id="main-menu" class="nav navbar-nav root-level">
+
+                        {% show_menu 0 100 100 100 "core/menu.html" %}
+
+                        <li id="more" class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button">Еще <span class="caret"></span></a>
+                            <ul class="dropdown-menu multi-level">
+                                {% show_menu 0 0 100 100 "core/menu.html" %}
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header> {% endcomment %}
+
+
+<!-- Main Header -->
+<header class="main-header header-style-two">
+
+    <!-- Header Top -->
+    <div data-wow-duration="1500ms" class="header-top wow fadeInDown">
+        <div class="auto-container">
+            <div class="inner-container">
+                <div class="left-column">
+                    <ul class="contact-info">
+                        {% if site_settings.address %}
+                        <li><i class="flaticon-pin"></i>{{ site_settings.address }}</li>
+                        {% endif %}
+                        {% if site_settings.email %}
+                        <li><a href="mailto: {{ site_settings.email }}"><i class="flaticon-email"></i>{{ site_settings.email }}</a></li>
+                        {% endif %}
+                        {% if site_settings.schedule %}
+                        <li><i class="flaticon-clock"></i>{{ site_settings.schedule }}</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="right-column">
+                    <ul class="social-icon">
+                        {% for social in site_settings.socials %}
+                        <li>
+                            <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
+                                <i class="fab fa-{{social.icon}}"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Upper -->
+    <div class="header-upper">
+        <div class="auto-container">
+            <div class="inner-container">
+                <!--Logo-->
+                <div class="logo-box">
+                    <div class="logo">
+                        <a href="/">
+                            {% include 'core/brand.html' with bg="light" %}
+                        </a>
+                    </div>
+                </div>
+                <!--Nav Box-->
+                <div class="nav-outer">
+                    <!--Mobile Navigation Toggler-->
+                    <div class="mobile-nav-toggler"><img src="{% static 'core/images/icons/icon-bar2.png' %}" alt=""></div>
+
+                    <!-- Main Menu -->
+                    <nav class="main-menu navbar-expand-md navbar-light">
+                        <div class="collapse navbar-collapse show clearfix">
+                            <ul class="navigation">
+                                {% show_menu 0 100 100 100 "core/menu.html" %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="navbar-right">
+                    <div class="contact-info">
+                        <div class="icon"><i class="flaticon-phone-ringing"></i></div>
+                        <div class="content">
+                            <h5>Позвоните нам</h5>
+                            <h4>{{ site_settings.phone }}</h4>
+                        </div>
+                    </div>
+                    <button type="button" class="theme-btn search-toggler"><i class="flaticon-magnifying-glass"></i></button>
+                </div>                      
+            </div>
+        </div>
+    </div>
+    <!--End Header Upper-->
+
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+        <div class="header-upper">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <!--Logo-->
+                    <div class="logo-box">
+                        <div class="logo">
+                            <a href="/">
+                                {% include 'core/brand.html' with bg="light" %}
+                            </a>
+                        </div>
+                    </div>
+                    <!--Nav Box-->
+                    <div class="nav-outer">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler"><img src="{% static 'core/images/icons/icon-bar2.png' %}" alt=""></div>
+
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix">
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="navbar-right">
+                        <div class="contact-info">
+                            <div class="icon"><i class="flaticon-phone-ringing"></i></div>
+                            <div class="content">
+                                <h5>Позвоните нам</h5>
+                                <h4>{{ site_settings.phone }}</h4>
+                            </div>
+                        </div>
+                        <button type="button" class="theme-btn search-toggler"><i class="flaticon-magnifying-glass"></i></button>
+                    </div>                      
+                </div>
+            </div>
+        </div>
+    </div><!-- End Sticky Menu -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="icon flaticon-cancel"></i></div>
+        
+        <nav class="menu-box">
+            <div class="nav-logo">
+                {% comment %} <a href="index.html">
+                    <img src="{% static 'core/images/logo-light.png' %}" alt="" title="">
+                </a> {% endcomment %}
+                <a href="/">
+                    {% include 'core/brand.html' with bg="dark" %}
+                </a>
+            </div>
+            <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+
+            <!--Social Links-->
+            <div class="social-links">
+                <ul class="clearfix">
+                    {% for social in site_settings.socials %}
+                    <li>
+                        <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
+                            <i class="fab fa-{{social.icon}}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div><!-- End Mobile Menu -->
+
+    <div class="nav-overlay">
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+    </div>
+</header>
+<!-- End Main Header -->

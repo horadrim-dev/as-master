@@ -1,0 +1,107 @@
+.contact-container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.form-control.checkbox {
+    display: inline-block;
+    width: 50px;
+}
+.checkbox-label {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+/* .step-item {
+    opacity: .4;
+}
+.step-item.active {
+    opacity: 1;
+} */
+ul.errorlist {
+    list-style: none;
+    color: #f00;
+    padding: 5px 0px;
+}
+.field-label {
+    margin-bottom: 0;
+}
+i.required::after {
+    content: "\f069";
+    color: #f00;
+    font-family: 'Font Awesome 5 Pro';
+    font-size: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.form-box:not(.form-inline) .g-recaptcha {
+  margin-bottom: 0;
+}
+
+
+
+/*  unnecessary */
+/* body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  flex-direction:column;
+}
+section{
+  width:100%;
+} */
+/*  unnecessary finished*/
+.contact-container .steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.contact-container .step-item .step-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bs-gray);
+    transition: .4s;
+}
+
+.contact-container .step-item.active .step-button {
+    width: 60px;
+    height: 60px;
+    background-color: var(--theme-secondary);
+    color: #fff;
+}
+
+.contact-container .done {
+    background-color: var(--theme-secondary);
+    color: #fff;
+}
+
+.contact-container .step-item {
+    z-index: 10;
+    text-align: center;
+}
+
+.contact-container #progress {
+    -webkit-appearance:none;
+    position: absolute;
+    width: 95%;
+    z-index: 5;
+    height: 10px;
+    margin-left: 18px;
+    margin-bottom: 28px;
+}
+
+/* to customize progress bar */
+.contact-container #progress::-webkit-progress-value {
+    background-color: var(--theme-secondary);
+    transition: .5s ease;
+}
+
+.contact-container #progress::-webkit-progress-bar {
+    background-color: var(--bs-gray);
+
+}

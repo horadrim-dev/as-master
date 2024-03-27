@@ -1,0 +1,28 @@
+{% load cms_tags sekizai_tags thumbnail static %}
+
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'news/css/news.css' %}">{% endaddtoblock %} 
+{% addtoblock "js" %}<script  src="{% static 'core/js/isotope.min.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script  src="{% static 'core/js/imagesloaded.min.js' %}"></script>{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'news/js/news.js' %}"></script>{% endaddtoblock %} 
+
+<div class="news-container news-maso-grid">
+
+  <div class="row">
+    {% for obj in object_list %}
+
+      <div class="news-maso-item col-md-4 col-sm-6">
+        {% render_model_block obj %}
+          {% include 'news/includes/post.item.vertical.html' %}
+        {% endrender_model_block %}
+      </div>
+
+    {% empty %}
+      <p> Записей не найдено.</p>
+    {% endfor %}
+
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="{% url 'news:index' %}" class="btn-style-two bg-white">Все новости</a>
+</div>
