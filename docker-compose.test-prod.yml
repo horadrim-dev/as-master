@@ -50,8 +50,8 @@ services:
     depends_on:
       master-db:
         condition: service_healthy
-      master-es:
-        condition: service_healthy
+      # master-es:
+      #   condition: service_healthy
 
 networks:
   proxy:
