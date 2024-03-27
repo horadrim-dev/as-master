@@ -1,8 +1,8 @@
 version: '3.2'
 services:
-  ufkis-db:
+  master-db:
     image: postgres:15.3-alpine
-    container_name: ufkis-db
+    container_name: master-db
     networks:
       - default
     volumes:
@@ -15,25 +15,25 @@ services:
     healthcheck:
       test: "exit 0"
 
-  ufkis-es:
-    container_name: ufkis-es
-    image: elasticsearch:7.17.10
-    environment:
-      - discovery.type=single-node
+        #master-es:
+    #container_name: master-es
+      #image: elasticsearch:7.17.10
+      #environment:
+      # - discovery.type=single-node
       # - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
-    volumes:
-      - ./hunspell:/usr/share/elasticsearch/config/hunspell:ro
-    ports:
-      - "9200:9200"
-    networks:
-      - default
-    healthcheck:
-      test: "exit 0"
+      #- "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+        #volumes:
+      #- ./hunspell:/usr/share/elasticsearch/config/hunspell:ro
+        #ports:
+      #- "9200:9200"
+        #networks:
+      #- default
+        #healthcheck:
+      #  test: "exit 0"
 
-  ufkis-app:
+  master-app:
     build: .
-    container_name: ufkis-app
+    container_name: master-app
     entrypoint: /entrypoint.sh
     networks:
       - default
@@ -48,9 +48,9 @@ services:
     command: python manage.py runserver 0.0.0.0:80
     restart: unless-stopped
     depends_on:
-      ufkis-db:
+      master-db:
         condition: service_healthy
-      ufkis-es:
+      master-es:
         condition: service_healthy
 
 networks:
@@ -58,4 +58,4 @@ networks:
     name: 'proxy'
     external: true
   default:
-    name: ufkis
+    name: master
