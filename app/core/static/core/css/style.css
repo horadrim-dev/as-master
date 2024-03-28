@@ -5488,3 +5488,7 @@ table tbody tr td:last-child {
     border-color: var(--theme-color);
     background-color: #fff;
 }
+section {
+    display: block;
+    position: relative;
+}
