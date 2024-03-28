@@ -83,9 +83,10 @@
     {% if instance.css_classes %} {{instance.css_classes}} {% endif %}
   " 
   {% if instance.use_parallax %}
-    data-natural-height="850" 
-    data-natural-width="1980" 
+    {% comment %} data-natural-height="850" 
+    data-natural-width="1980"  {% endcomment %}
     data-parallax="scroll" 
+    data-z-index="0" 
     data-image-src="{% spaceless %}
       {% if instance.thumb_width and instance.thumb_height %}
         {% thumbnail instance.background_image instance.get_width_height_thumb upscale crop %}
