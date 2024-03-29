@@ -152,6 +152,7 @@ INSTALLED_APPS = [
     'reviews',
     'steps',
     'prices',
+    'djangocms_animated_numbers',
     # 'cmsplugin_contact'
     # 'django.contrib.postgres',
 ]

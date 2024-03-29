@@ -1,0 +1,57 @@
+.animated-numbers-block {
+    position: relative;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.animated-numbers-block:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 25px;
+    bottom: 0;
+    left: 25px;
+    opacity: .5;
+    transform: scaleY(0);
+    transition: .7s;
+    background-color: #fff;
+    border-radius: 10px;
+    transform-origin: top;
+}
+.animated-numbers-block:hover:before {
+	transform: scale(1);
+}
+
+.animated-numbers-block .inner-box {
+    position: relative;
+    max-width: 160px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.animated-numbers-block .icon {
+    font-size: 60px;
+    color: var(--theme-color);
+    margin-bottom: 30px;
+}
+
+.animated-numbers-block .count-outer.count-box {
+    font-size: 40px;
+    line-height: 36px;
+    color: #212121;
+    font-weight: 400;
+    margin-bottom: 7px;
+}
+
+.animated-numbers-block .text {
+    font-size: 17px;
+    line-height: 20px;
+    color: #737373;
+    margin: 0;
+}
+.animated-numbers-block .count-text {
+    color: var(--theme-text-color);
+}
+.animated-numbers-block:last-child:after {
+    display: none;
+}

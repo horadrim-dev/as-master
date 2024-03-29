@@ -2302,69 +2302,6 @@ section.about-section {
     font-weight: 400;
 }
 
-.funfact-block-one {
-    position: relative;
-    margin-bottom: 30px;
-}
-
-.funfact-block-one:before {
-    position: absolute;
-    content: '';
-    top: 0;
-    right: 50px;
-    bottom: 0;
-    left: 15px;
-    transform: scaleY(0);
-    transition: .7s;
-    background-color: #fff;
-    border-radius: 10px;
-    transform-origin: top;
-}
-.funfact-block-one:hover:before {
-	transform: scale(1);
-}
-
-.funfact-block-one .inner-box {
-    position: relative;
-    max-width: 160px;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-.funfact-block-one .icon {
-    font-size: 60px;
-    color: var(--theme-color);
-    margin-bottom: 30px;
-}
-
-.funfact-block-one .count-outer.count-box {
-    font-size: 40px;
-    line-height: 36px;
-    color: #212121;
-    font-weight: 400;
-    margin-bottom: 7px;
-}
-
-.funfact-block-one .text {
-    font-size: 17px;
-    color: #737373;
-    margin: 0;
-}
-
-.funfact-block-one:after {
-    position: absolute;
-    content: '';
-    top: 40px;
-    right: 18px;
-    bottom: 40px;
-    width: 1px;
-    background-color: #dbdbdb;
-}
-
-.funfact-block-one:last-child:after {
-    display: none;
-}
-
 /* courses section */
 section.courses-section {
     position: relative;
