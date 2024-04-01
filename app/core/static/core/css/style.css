@@ -5429,3 +5429,10 @@ section {
     display: block;
     position: relative;
 }
+a.dashed {
+    border-bottom: dashed 1px var(--theme-text-color);
+    text-decoration: none;
+}
+a.dashed:hover {
+    border-bottom: none;
+}
