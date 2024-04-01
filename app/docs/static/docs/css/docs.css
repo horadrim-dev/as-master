@@ -24,6 +24,13 @@
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
   color: #4f4f4f;
 }
+.docs-item.vertical {
+  background: none;
+  box-shadow: none;
+  color: var(--theme-text-color);
+  padding: 20px;
+  text-align: center;
+}
 .docs-item .readmore {
   margin-right: 1px;
 }
@@ -188,6 +195,7 @@ ul.slides li .docs-item {
 .docs-item .file-attributes {
   text-align: center;
   color: #d5d5d5;
+  font-size: 16px;
 }
 .docs-item h4, 
 .docs-item a {
@@ -204,7 +212,7 @@ ul.slides li .docs-item {
 .docs-container .icon-box i{
   font-size: 40px;
   line-height: 35px;
-  text-align: left;
+  text-align: center;
   width: 65px;
   margin-left: 1px;
   height: 35px;

@@ -1,8 +1,10 @@
 {% load cms_tags core_tags easy_thumbnails_tags %}
 
-    <div class="advs-box advs-box-top-icon">
+    <div class="docs-item vertical">
         {% if SHOW_ICON %}
-        <i class="icon fa {{ obj.fa_icon }} text-lg"></i>
+        <div class="icon-box">
+            <i class="icon fa {{ obj.fa_icon }} text-lg"></i>
+        </div>
         {% endif %}
 
         <h4>
@@ -21,7 +23,9 @@
         {% endif %}
 
         {% if SHOW_FILE_ATTRS and obj.document_file %}
-        <span>.{{ obj.extension }} ({{ obj.document_file.size|filesizeformat }})</span>
+        <div class="file-attributes">
+            <span>.{{ obj.extension }} ({{ obj.document_file.size|filesizeformat }})</span>
+        </div>
         {% endif %}
 
         {% if SHOW_TAGS %}

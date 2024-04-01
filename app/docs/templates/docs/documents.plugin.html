@@ -7,28 +7,25 @@
 
 <div class="docs-container">
 
-    <div class="grid-list ">
-      <div class="grid-box row">
-        {% for obj in object_list %}
+    <div class="row">
+      {% for obj in object_list %}
 
-        <div class="grid-item col-md-{{ BOOTSTRAP_COL }}">
-          {% render_model_block obj %}
-          {% include 'docs/includes/document_item_vertical.html' %}
-          {% endrender_model_block %}
-        </div>
-
-        {% empty %}
-          <p> Документов пока нет.</p>
-        {% endfor %}
-
+      <div class="col-md-{{ BOOTSTRAP_COL }}">
+        {% render_model_block obj %}
+        {% include 'docs/includes/document_item_vertical.html' %}
+        {% endrender_model_block %}
       </div>
+
+      {% empty %}
+        <p> Документов пока нет.</p>
+      {% endfor %}
+
     </div>
 
-    <hr class="space m" />
     {% if not HIDE_MORE_BUTTON %}
-    <div class="text-center">
+    <div class="text-center mt-3">
       <a href="{% url 'docs:index' %}?category={% if instance.category %}{{ instance.category.id }}{% endif %}&tags={% if instance.tag %}{{ instance.tag.name | prepare_tag_name }}{% endif %}" 
-         class="btn btn-m btn-border ">
+         class="btn btn-outline-primary">
         <i class="fa fa-book"></i>
         {% if instance.category %}{{ instance.category }}{% else %}Документы{% endif %}{% if instance.tag %} по тегу "{{ instance.tag.name }}"{% endif %}
         {% if instance.count_not_loaded_documents %}(+{{ instance.count_not_loaded_documents }}){% endif %}
