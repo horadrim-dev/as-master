@@ -136,7 +136,7 @@ INSTALLED_APPS = [
     'colorfield',
     'infoblock',
     'columns',
-    'catalog',
+    # 'catalog',
     'slider',
     'news',
     # 'djangocms_picture', # использовано в medialer
