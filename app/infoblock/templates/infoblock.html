@@ -1,8 +1,10 @@
 {% load static sekizai_tags cms_tags %}
 
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/scripts/flexslider/flexslider.css' %}">{% endaddtoblock %}
-{% addtoblock "js" %}<script src="{% static 'core/scripts/flexslider/jquery.flexslider-min.js' %}"></script>{% endaddtoblock %}
-{% addtoblock "dynamic-css" %}
+{% comment %} {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/scripts/flexslider/flexslider.css' %}">{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'core/scripts/flexslider/jquery.flexslider-min.js' %}"></script>{% endaddtoblock %} {% endcomment %}
+{% addtoblock "css" %}<link rel="stylesheet" type="text/css" href="{% static 'core/components/tiny-slider/tiny-slider.css' %}">{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'core/components/tiny-slider/tiny-slider.min.js' %}"></script>{% endaddtoblock %}
+{% comment %} {% addtoblock "dynamic-css" %}
 <style>
 #slider-{{id}} {
     height: {{instance.height}}px !important;
@@ -13,19 +15,72 @@
     }
 }
 </style>
+{% endaddtoblock %} {% endcomment %}
+
+{% addtoblock "dynamic-js" %}
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var slider = tns({
+      container: '#content-slider-{{id}} .slides',
+      loop:true,
+      rewind: false,
+      autoplay: true,
+      items: 1, {# If slides less or equal than items, the slider wont be initialized. #}
+      {% comment %} autoWidth: true, {% endcomment %}
+      autoHeight: true,
+      {% comment %} center: true, {% endcomment %}
+      controls: false,
+      navPosition: "bottom",
+      {% comment %} nav: true, {% endcomment %}
+      autoplayButtonOutput: false,
+      onInit: (e) => {
+        //Your code after init
+        $('.lightbox').fancybox({
+          openEffect  : 'fade',
+          closeEffect : 'fade',
+          helpers : {
+            media : {}
+          }
+        });
+      },
+      responsive: {
+        640: {
+          items: 1
+        },
+        700: {
+        },
+        900: {
+          items: {{ instance.num_items }}
+        }
+      }
+    });
+  });
+</script>
 {% endaddtoblock %}
 
+<div id="content-slider-{{ id }}">
+  <ul class="slides">
+    {% for plugin in instance.child_plugin_instances %}
+    <li class="owl-item">
+      {% with forloop.counter as item_number %}
+      {% render_plugin plugin %}
+      {% endwith %}
+    </li>
+    {% endfor %}
+  </ul>
+
+</div>
 {% comment %} <div class="section-empty no-paddings"> {% endcomment %}
-    <div class="section-slider" id="slider-{{id}}">
+    {% comment %} <div class="section-slider" id="slider-{{id}}">
         <div class="flexslider advanced-slider slider" data-options="animation:fade">
             <ul class="slides">
                 {% for plugin in instance.child_plugin_instances %}
-                    {% comment %} <li data-slider-anima="fade-right" data-time="1000"> {% endcomment %}
                     <li>
                         {% render_plugin plugin %}
                     </li>
                 {% endfor %}
             </ul>
         </div>
-    </div>
+    </div> {% endcomment %}
 {% comment %} </div> {% endcomment %}

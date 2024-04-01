@@ -335,8 +335,8 @@
 	
 
 	// LightBox / Fancybox
-	if($('.lightbox-image').length) {
-		$('.lightbox-image').fancybox({
+	if($('.lightbox').length) {
+		$('.lightbox').fancybox({
 			openEffect  : 'fade',
 			closeEffect : 'fade',
 			helpers : {

@@ -12,7 +12,7 @@ class SlideInlineAdmin(admin.StackedInline):
 @plugin_pool.register_plugin
 class SliderPlugin(CMSPluginBase):
     model = Slider
-    name = "Слайдер"
+    name = "Фото-слайдер"
     render_template = "./slider/slider.html"
     cache = True
     allow_children = True
