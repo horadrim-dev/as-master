@@ -1,7 +1,7 @@
 {% load menu_tags %}
 
 {% for child in children %}
-<div class="grid-item col-md-3 text-center
+<div class="col-md-3 text-center 
 	{% if child.get_menu_title == 'Главная' %}home{% endif %}
 	{% if child.children %}
 		dropdown
@@ -14,15 +14,17 @@
 	{% if child.descendant %} descendant{% endif %}
 	">
 	<div class="menu-item-container">
-		<a class="nav-link 
-			{% if child.attr.icon %}has-icon{% endif %}
-			" 
-			href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">
-			{% comment %} {% if child.attr.icon %}<i class="fa fa-{{child.attr.icon}} text-m"></i>{% endif %} {% endcomment %}
-			<div class="menu-blocks-item">
-				{{ child.get_menu_title }}
-			</div>
-		</a>
+		<h4>
+			<a class="nav-link
+				{% if child.attr.icon %}has-icon{% endif %}
+				" 
+				href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">
+				{% comment %} {% if child.attr.icon %}<i class="fa fa-{{child.attr.icon}} text-m"></i>{% endif %} {% endcomment %}
+				<div class="menu-blocks-item block block-hovered">
+					{{ child.get_menu_title }}
+				</div>
+			</a>
+		</h4>
 	</div>
 	{% comment %} {% if child.children %}
 		<button type="button" class="btn btn-default dropdown-toggle mobile-dropdown visible-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
