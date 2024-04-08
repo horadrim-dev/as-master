@@ -23,22 +23,22 @@ class StructureToolbar(CMSToolbar):
             verbose_name='Структура',
             position = page_menu
         )
-        menu.add_sideframe_item(
-            name='Виды организаций',
-            url=admin_reverse('structure_categoryorganization_changelist')
-        )
+        # menu.add_sideframe_item(
+        #     name='Виды организаций',
+        #     url=admin_reverse('structure_categoryorganization_changelist')
+        # )
         menu.add_sideframe_item(
             name='Организации',
             url=admin_reverse('structure_organization_changelist')
         )
-        menu.add_sideframe_item(
-            name='Виды спорта',
-            url=admin_reverse('structure_activity_changelist')
-        )
-        menu.add_sideframe_item(
-            name='Секции',
-            url=admin_reverse('structure_department_changelist')
-        )
+        # menu.add_sideframe_item(
+        #     name='Виды спорта',
+        #     url=admin_reverse('structure_activity_changelist')
+        # )
+        # menu.add_sideframe_item(
+        #     name='Секции',
+        #     url=admin_reverse('structure_department_changelist')
+        # )
         menu.add_sideframe_item(
             name='Отделы',
             url=admin_reverse('structure_otdel_changelist')
