@@ -17,7 +17,7 @@ class AttributesPluginPublisher(CMSPluginBase):
         context['object'] = instance.organization
         return context
  
-@plugin_pool.register_plugin
+# @plugin_pool.register_plugin
 class LogoPluginPublisher(CMSPluginBase):
     module = "Структура"
     name = "Логотип организации"
@@ -70,7 +70,7 @@ class SotrudnikOrganizationPluginPublisher(CMSPluginBase):
         return context
  
 
-@plugin_pool.register_plugin
+# @plugin_pool.register_plugin
 class ActivityPluginPublisher(CMSPluginBase):
     module = "Структура"
     name = "Виды спорта"
@@ -84,7 +84,7 @@ class ActivityPluginPublisher(CMSPluginBase):
         return context
     
 
-@plugin_pool.register_plugin
+# @plugin_pool.register_plugin
 class DepartmentPluginPublisher(CMSPluginBase):
     module = "Структура"
     name = "Спортивные секции"

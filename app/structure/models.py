@@ -298,6 +298,7 @@ class Sotrudnik(StructureBase):
                                   в разделе \"Аппарат управления\" организации")
     page = PageField(verbose_name="Ссылка на страницу", blank=True, null=True,
                           help_text="Не обязательно")
+    description = HTMLField("Описание", blank=True, null=True)
     # PHONE?
 
 
@@ -381,6 +382,7 @@ class OtdelOrganizationPlugin(CMSPlugin):
                                  verbose_name="Организация")
     show_detail_link = models.BooleanField("Отображать ссылку на страницы отделов и сотрудников",
                                            default=True, help_text="если она есть")       
+    expand_all = models.BooleanField("Развернуть все отделы", default=True)       
 
 LAYOUT_CHOICES = [
     ("rows", "Построчно"),

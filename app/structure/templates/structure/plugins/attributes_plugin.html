@@ -2,7 +2,7 @@
 
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'structure/css/structure.css' %}">{% endaddtoblock %}
 
-<ul class="list-texts list-texts-justified text-left">
+<ul class="attribute-list text-left mb-3">
   {% if object.phone %}
   <li><b>Телефон приемной: </b><i class="fa fa-phone"></i> {{ object.phone }}</li>
   {% endif %}

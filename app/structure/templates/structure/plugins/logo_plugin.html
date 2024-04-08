@@ -1,7 +1,7 @@
 {% load sekizai_tags easy_thumbnails_tags static %}
 
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'structure/css/structure.css' %}">{% endaddtoblock %}
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %} 
+{% comment %} {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %}  {% endcomment %}
 
 {% if object.logo %}
 <div class="img-box">

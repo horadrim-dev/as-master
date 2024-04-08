@@ -1,7 +1,7 @@
 {% load cms_tags sekizai_tags easy_thumbnails_tags static %}
 
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/content-box.css' %}">{% endaddtoblock %}
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %} 
+{% comment %} {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/content-box.css' %}">{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %}  {% endcomment %}
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'structure/css/structure.css' %}">{% endaddtoblock %}
 
 <div class="sotrudnik-list">
@@ -12,28 +12,28 @@
       <div class="col-md-12">
         {% render_model_block object %}
         <div class="apparat-item">
-            <div class="advs-box advs-box advs-box-side-icon boxed-inverse">
-                <div class="row vertical-row">
+            <div class="block">
+                <div class="row align-items-center">
                     <div class="col-xs-3 col-lg-2 text-center">
-                        <div class="photo img-box">
+                        {% comment %} <div class="photo img-box"> {% endcomment %}
                             {% if object.photo %}
                             <img src="{{ object.photo_thumb_src }}" alt="">
                             {% else %}
-                            <i class="fa fa-user-o"></i>
+                            <i class="icon fa fa-user"></i>
                             {% endif %}
-                        </div>
+                        {% comment %} </div> {% endcomment %}
                     </div>
-                    <div class="col-xs-9 col-lg-10">
+                    <div class="col-xs-9 col-lg-10 py-3">
                         {% comment %} <h3><a href="{% url 'structure:org-detail' object.id %}">{{ object.name }}</a></h3> {% endcomment %}
-                        <h3>
+                        <h4>
                           {% if SHOW_DETAIL_LINK and object.page %}
                             <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
                           {% else %}
                             {{ object.name }}
                           {% endif %}
-                        </h3>
+                        </h4>
                         <p>{{ object.position }}</p>
-                        <hr class="space xs">
+                        {% if object.description %}<p>{{ object.description | safe }}</p>{% endif %}
                         {% for phone in object.phones %}
                           <div><span><i class="fa fa-phone"></i> {{ phone.number }}</span></div>
                         {% endfor %}
@@ -49,39 +49,37 @@
   </div>
 
 {% elif layout == "blocks" %}
-  <div class="grid-list">
-    <div class="grid-box row">
-      {% for object in object_list %}
-        {% render_model_block object %}
-        <div class="grid-item col-md-3">
-          <div class="advs-box advs-box-top-icon boxed-inverse">
-              {% if object.photo %}
-              <img src="{{ object.photo_thumb_src }}" height="100" alt="">
-              {% else %}
-              <i class="fa fa-user-o text-xl"></i>
-              {% endif %}
-            <div class="advs-box-content">
-                <h3>
-                  {% if SHOW_DETAIL_LINK and object.page %}
-                    <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
-                  {% else %}
-                    {{ object.name }}
-                  {% endif %}
-                </h3>
-                <p>{{ object.position }}</p>
-                <hr>
-                {% for phone in object.phones %}
-                  <div><span><i class="fa fa-phone"></i> {{ phone.number }}</span></div>
-                {% endfor %}
-            </div>
+  <div class="row">
+    {% for object in object_list %}
+      {% render_model_block object %}
+      <div class="col-md-3">
+        <div class="apparat-item block text-center">
+            {% if object.photo %}
+            <img src="{{ object.photo_thumb_src }}" height="100" alt="">
+            {% else %}
+            <i class="icon fa fa-user"></i>
+            {% endif %}
+          <div class="apprat-item-content mt-3">
+              <h4>
+                {% if SHOW_DETAIL_LINK and object.page %}
+                  <a href="{{ object.get_absolute_url }}">{{ object.name }}</a>
+                {% else %}
+                  {{ object.name }}
+                {% endif %}
+              </h4>
+              <p>{{ object.position }}</p>
+              {% if object.description %}<p>{{ object.description | safe }}</p>{% endif %}
+              {% for phone in object.phones %}
+                <div><span><i class="fa fa-phone"></i> {{ phone.number }}</span></div>
+              {% endfor %}
           </div>
         </div>
-        {% endrender_model_block %}
-        {% cycle '' '' '' '<div class="clear"></div>' %}
-      {% empty %}
-      Сведений по сотрудникам пока нет.
-      {% endfor %}
-    </div>
+      </div>
+      {% endrender_model_block %}
+      {% cycle '' '' '' '<div class="clear"></div>' %}
+    {% empty %}
+    Сведений по сотрудникам пока нет.
+    {% endfor %}
   </div>
 
 {% endif %}

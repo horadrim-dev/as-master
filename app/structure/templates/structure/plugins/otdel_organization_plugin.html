@@ -1,15 +1,14 @@
 {% load cms_tags sekizai_tags easy_thumbnails_tags static %}
 
 
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/content-box.css' %}">{% endaddtoblock %}
-{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %} 
+{% comment %} {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/content-box.css' %}">{% endaddtoblock %}
+{% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/image-box.css' %}">{% endaddtoblock %}  {% endcomment %}
 {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'structure/css/structure.css' %}">{% endaddtoblock %}
-{% addtoblock "js" %}<script  src="{% static 'core/scripts/jquery.tab-accordion.js' %}"></script>{% endaddtoblock %}
+{% comment %} {% addtoblock "js" %}<script  src="{% static 'core/scripts/jquery.tab-accordion.js' %}"></script>{% endaddtoblock %} {% endcomment %}
 
-<div class="otdel-list list-group accordion-list" data-type="visible" data-time="200">
+{% comment %} <div class="otdel-list list-group accordion-list" data-type="visible" data-time="200">
   {% for object in object_list %}
   <div class="list-group-item">
-    {% comment %} {% render_model_block object %} {% endcomment %}
     <a href="#" class="">
       <div class="row">
         <div class="col-xs-8">
@@ -24,7 +23,6 @@
         </div>
       </div>
     </a>
-    {% comment %} {% endrender_model_block %} {% endcomment %}
     <div class="panel" style="display: none;">
       <div class="inner text-center">
 
@@ -39,6 +37,44 @@
     </div>
   </div>
   {% empty %}
-  Сведений по отделам пока нет.
+  Сведений по отделам нет.
   {% endfor %}
+</div> {% endcomment %}
+
+<div id="accordion-{{ id }}" class="accordion mb-3">
+  {% for object in object_list %}
+	<div class="accordion-item">
+		<h2 class="accordion-header" id="accordion-{{ id }}-header-{{ forloop.counter }}">
+			<button class="accordion-button collapsed" 
+				type="button" 
+				data-bs-toggle="collapse" 
+				data-bs-target="#accordion-{{ id }}-collapse-{{ forloop.counter }}" 
+				aria-expanded="{% if instance.expand_all %}true{% else %}false{% endif %}"
+				aria-controls="accordion-{{ id }}-collapse-{{ forloop.counter }}"
+				>
+				{{ object.name }}
+			</button>
+		</h2>
+		<div id="accordion-{{ id }}-collapse-{{ forloop.counter }}" 
+			class="accordion-collapse 
+				   collapse 
+				   {% if instance.expand_all %}show{% endif %}
+				   "
+			aria-labelledby="accordion-{{ id }}-header-{{ forloop.counter }}" 
+			{% comment %} {% if instance.close_others %}data-bs-parent="#accordion-{{ id }}"{% endif %} {% endcomment %}
+			>
+			<div class="accordion-body">
+        {% comment %} <div class="inner text-center"> {% endcomment %}
+            {% include 'structure/plugins/sotrudnik_organization_plugin.html' with object_list=object.get_employees layout="rows" instance=None %}
+
+            {% if SHOW_DETAIL_LINK and object.page %}
+              <a href="{{ object.get_absolute_url }}" class="btn btn-lg btn-border w-100 mb-3">Подробнее об отделе</a>
+            {% endif %}
+        {% comment %} </div> {% endcomment %}
+			</div>
+		</div>
+	</div>
+  {% empty %}
+  Сведений по отделам нет.
+	{% endfor %}
 </div>
