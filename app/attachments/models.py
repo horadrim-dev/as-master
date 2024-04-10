@@ -66,18 +66,18 @@ class Attachment(models.Model):
     def fa_icon(self):
         """Возвращает название иконки (font awesome 4.7) для файла документа """
 
-        ARCHIVE = { "ext" : ("rar", "zip", "7z"),  "icon": "fa-file-archive-o"}
-        WORD = {"ext": ("doc", "docx"), "icon": "fa-file-word-o"}
-        EXCEL = {"ext": ("xls", "xlsx"), "icon": "fa-file-excel-o"}
-        VIDEO = {"ext": ("mp4", "avi", "mkv"), "icon": "fa-file-video-o"}
-        PDF = {"ext" : ("pdf", ), "icon": "fa-file-pdf-o"}
+        ARCHIVE = { "ext" : ("rar", "zip", "7z"),  "icon": "fa-file-archive"}
+        WORD = {"ext": ("doc", "docx"), "icon": "fa-file-word"}
+        EXCEL = {"ext": ("xls", "xlsx"), "icon": "fa-file-excel"}
+        VIDEO = {"ext": ("mp4", "avi", "mkv"), "icon": "fa-file-video"}
+        PDF = {"ext" : ("pdf", ), "icon": "fa-file-pdf"}
 
         file_types = [ARCHIVE, WORD, EXCEL, VIDEO, PDF]
         for file_type in file_types:
             if self.extension in file_type["ext"]:
                 return file_type["icon"]
 
-        return "fa-file-o"
+        return "fa-file"
 
 
     class Meta:

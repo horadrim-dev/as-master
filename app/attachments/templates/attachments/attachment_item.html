@@ -1,12 +1,12 @@
-<div class="list-item">
+<li class="list-group-item">
     <a href="{{ object.url }}">
-        <div class="row ">
-            <div class="col-xs-1">
+        <div class="row p-3 pb-0">
+            <div class="col-sm-1 pt-3">
                 <div class="icon-box">
-                    <i class="icon fa {{ object.fa_icon }} text-l"></i>
+                    <i class="icon fa {{ object.fa_icon }} fs-1"></i>
                 </div>
             </div>
-            <div class="col-xs-11">
+            <div class="col-sm-11">
                     {% comment %} <h4>{% if object.document_type %}{{ object.document_type }}{% endif %} {% if object.number %}№{{ object.number }}{% endif %} {% if object.date %}от {{ object.date }}{% endif %}</h4> {% endcomment %}
                     <h4 class="no-margins">{{ object.name }}</h4>
                 <div class="text-s">
