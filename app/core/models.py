@@ -252,10 +252,14 @@ class AccordionPlugin(CMSPlugin):
     open_all = models.BooleanField("Все вкладки развернуты при загрузке", default=False,
                                    help_text="Если активно, номер открытой вкладки будет проигнорирован")
     hide_borders = models.BooleanField("Скрыть линии границ аккордеона", default=False)
+    css_classes = models.CharField("CSS классы", max_length=256, help_text="Bootstrap 5", default="", 
+                                   blank=True, null=True)
 
 class ItemAccordionPlugin(CMSPlugin):
     """Модель плагина вкладки аккордеона"""
     name = models.CharField("Название", max_length=1024, )
+    css_classes = models.CharField("CSS классы", max_length=256, help_text="Bootstrap 5", default="", 
+                                   blank=True, null=True)
 
     def __str__(self):
         return self.name

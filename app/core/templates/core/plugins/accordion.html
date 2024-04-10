@@ -1,12 +1,12 @@
 {% load cms_tags sekizai_tags static %}
  
 <div id="accordion-{{ id }}"
-	 class="accordion {% if instance.hide_borders %}accordion-flush{% endif %} mb-3" 
+	 class="accordion {% if instance.hide_borders %}accordion-flush{% endif %} mb-3 {{ instance.css_classes }}" 
 	>
 	{% for plugin in instance.child_plugin_instances %}
-	<div class="accordion-item">
+	<div class="accordion-item {{ plugin.css_classes }}">
 		<h2 class="accordion-header" id="accordion-{{ id }}-header-{{ forloop.counter }}">
-			<button class="accordion-button {% if instance.num_auto_open != forloop.counter and not instance.open_all %}collapsed{% endif %}" 
+			<button class="accordion-button text-start {% if instance.num_auto_open != forloop.counter and not instance.open_all %}collapsed{% endif %}" 
 				type="button" 
 				data-bs-toggle="collapse" 
 				data-bs-target="#accordion-{{ id }}-collapse-{{ forloop.counter }}" 
