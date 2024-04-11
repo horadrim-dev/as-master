@@ -96,11 +96,12 @@
 body {
     font-size: 20px;
     color: #222;
-    line-height: 1.7em;
-    font-weight: 400;
+    line-height: 1.4em;
+    font-weight: 100;
     -webkit-font-smoothing: antialiased;
     background: rgb(255, 255, 255);
-    font-family: 'Roboto', 'Verdana', 'Rubik', sans-serif;
+    /* font-family: 'Roboto', 'Verdana', 'Rubik', sans-serif; */
+    font-family: 'Rubik', sans-serif;
 }
 
 .page-wrapper {
@@ -136,6 +137,7 @@ h6 {
     margin: 0px;
     background: none;
     color: #222;
+    font-family: 'Roboto', 'Verdana', 'Rubik', sans-serif;
 }
 
 textarea {
