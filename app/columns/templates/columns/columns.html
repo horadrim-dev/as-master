@@ -2,7 +2,8 @@
 {% comment %} <div class="multicolumn{{ instance.num_children }} clearfix"> {% endcomment %}
 <div class="container-fluid p-0 no-paddings">
 {% comment %} <div > {% endcomment %}
-	<div class="row no-gutters">
+	<div class="row">
+	{% comment %} <div class="row no-gutters"> {% endcomment %}
 	{% for plugin in instance.child_plugin_instances %}
 		{% render_plugin plugin %}
 	{% endfor %}
