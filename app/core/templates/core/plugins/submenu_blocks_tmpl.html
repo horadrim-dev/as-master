@@ -14,7 +14,7 @@
 	{% if child.descendant %} descendant{% endif %}
 	">
 	<div class="menu-item-container">
-		<h4>
+		<h5>
 			<a class="nav-link
 				{% if child.attr.icon %}has-icon{% endif %}
 				" 
@@ -24,7 +24,7 @@
 					{{ child.get_menu_title }}
 				</div>
 			</a>
-		</h4>
+		</h5>
 	</div>
 	{% comment %} {% if child.children %}
 		<button type="button" class="btn btn-default dropdown-toggle mobile-dropdown visible-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
