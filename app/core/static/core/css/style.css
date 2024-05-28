@@ -5443,3 +5443,15 @@ a.dashed {
 a.dashed:hover {
     border-bottom: none;
 }
+.list-items .nav-link {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 1.3rem;
+}
+.list-items .nav-link:hover {
+    background: var(--theme-color-lightest);
+}
+.list-items .list-item.selected {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
