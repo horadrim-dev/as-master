@@ -1,7 +1,7 @@
 {% load menu_tags %}
 
 {% for child in children %}
-<div class="col-md-3 text-center 
+<div class="col-md-3 text-center block block-hovered 
 	{% if child.get_menu_title == 'Главная' %}home{% endif %}
 	{% if child.children %}
 		dropdown
@@ -20,7 +20,7 @@
 				" 
 				href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">
 				{% comment %} {% if child.attr.icon %}<i class="fa fa-{{child.attr.icon}} text-m"></i>{% endif %} {% endcomment %}
-				<div class="menu-blocks-item block block-hovered">
+				<div class="menu-blocks-item ">
 					{{ child.get_menu_title }}
 				</div>
 			</a>
