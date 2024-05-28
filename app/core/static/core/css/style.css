@@ -5384,7 +5384,7 @@ footer .text i {
     border-top: 1px solid #828282;
 }
 .block {
-    margin: 10px 0;
+    /* margin: 10px 0; */
     padding: 30px 20px 20px 20px !important;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.10);
 }
