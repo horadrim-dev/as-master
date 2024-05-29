@@ -8,8 +8,8 @@
         {% endblock %}
       </title>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      {% comment %} <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% endcomment %}
       {% comment %} <meta name="description" content="{{site_settings.title}} {{site_settings.subtitle}}"> {% endcomment %}
       <link rel="shortcut icon" href="{% thumbnail site_settings.logo "32x32" %}" type="image/x-icon">
       <link rel="icon" href="{% thumbnail site_settings.logo "32x32" %}" type="image/x-icon">
@@ -41,7 +41,7 @@
 
 
       {% addtoblock "js" %}<script src="{% static 'core/js/jquery.js' %}"></script>{% endaddtoblock %}
-      {% comment %} {% addtoblock "js" %}<script src="{% static 'core/js/accessibility.min.js' %}"></script>{% endaddtoblock %} {% endcomment %}
+      {% addtoblock "js" %}<script src="{% static 'core/js/accessibility.min.js' %}"></script>{% endaddtoblock %}
       {% comment %} {% addtoblock "js" %}<script  src="{% static 'core/js/toastr.min.js' %}"></script>{% endaddtoblock %} {% endcomment %}
       {% addtoblock "js" %}<script src="{% static 'core/js/popper.min.js' %}"></script>{% endaddtoblock %}
       {% addtoblock "js" %}<script src="{% static 'core/js/bootstrap.min.js' %}"></script>{% endaddtoblock %}
