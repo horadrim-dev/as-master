@@ -9,6 +9,7 @@
                     <div class="col-sm-3 text-right">
                         <p class="field-label {% if form.lastname.field.required %}required{% endif %}">
                             {{ form.lastname.label_tag }}
+                            {% if form.lastname.field.required %}<i class="required"></i>{% endif %}
                         </p>
                     </div>
                     <div class="col-sm-9">{{ form.lastname }}{{ form.lastname.errors }}</div>
@@ -19,6 +20,7 @@
                     <div class="col-sm-3 text-right">
                         <p class="field-label {% if form.firstname.field.required %}required{% endif %}">
                             {{ form.firstname.label_tag }}
+                        {% if form.firstname.field.required %}<i class="required"></i>{% endif %}
                         </p>
                     </div>
                     <div class="col-sm-9">{{ form.firstname }}{{ form.firstname.errors }}</div>

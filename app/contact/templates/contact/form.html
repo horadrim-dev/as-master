@@ -15,21 +15,19 @@
 
   <section class="contact-container">
     <div class="container">
-        <div class="steps">
+        {% comment %} <div class="steps">
             <progress id="progress" value=0 max=100 ></progress>
             {% for step_title in STEP_TITLES %}
             <div class="step-item {% if forloop.counter == wizard.steps.step1 %}active{% endif %}">
                 <button class="step-button text-center" type="button" >
-                {% comment %} <div class="step-button text-center"> {% endcomment %}
                     {{ forloop.counter }}
-                {% comment %} </div> {% endcomment %}
                 </button>
                 <div class="step-title">
                     {{ step_title }}
                 </div>
             </div>
             {% endfor %}
-        </div>
+        </div> {% endcomment %}
         {% comment %} <div class="row box-steps">
             {% for step_title in STEP_TITLES %}
             <div class="step-item col-md-4 

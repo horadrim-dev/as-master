@@ -16,12 +16,15 @@ import os
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string, select_template
 
-FORM_TEMPLATES = {0: 'contact/form_agreement.html',
-                  1: 'contact/form_userdata.html',
-                  2: 'contact/form_message.html'}
+FORM_TEMPLATES = {0: 'contact/form_userdata.html',
+                  1: 'contact/form_message.html'}
+# FORM_TEMPLATES = {0: 'contact/form_agreement.html',
+#                   1: 'contact/form_userdata.html',
+#                   2: 'contact/form_message.html'}
 class ContactWizard(CookieWizardView):
 
-    form_list = [AgreementForm, UserDataForm, MessageForm]
+    # form_list = [AgreementForm, UserDataForm, MessageForm]
+    form_list = [UserDataForm, MessageForm]
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'temp'))
     subject_template = "contact/email_subject.html"
     email_template = "contact/email_body.html"
@@ -39,9 +42,11 @@ class ContactWizard(CookieWizardView):
     def get_context_data(self, form, **kwargs):
         context = super().get_context_data(form, **kwargs)
         context.update({
-            'STEP_TITLES': [self.settings.agreement_title,
-                            self.settings.userdata_title,
+            'STEP_TITLES': [self.settings.userdata_title,
                             self.settings.message_title]
+            # 'STEP_TITLES': [self.settings.agreement_title,
+            #                 self.settings.userdata_title,
+            #                 self.settings.message_title]
         })
         return context 
 
