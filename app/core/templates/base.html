@@ -167,6 +167,30 @@
     </script>
     {% endif %}
 
+  {# DEBUG PANEL #}
+  <div style="position: fixed;right: 0;top: 30%;z-index: 999999999;text-align: right;">
+    <ul>
+      <li>
+        <button id="style1" disabled="true">Стиль №1</button>
+      </li>
+      <li>
+        <button id="style2">Стиль №2</button>
+      </li>
+    </ul>
+  </div>
+  <script>
+    $('#style1').on("click", function() {
+      $('#style2').prop('disabled', false);
+      $('#style1').prop('disabled', true);
+      $('#css-style2').remove();
+    });
+    $('#style2').on("click", function() {
+      $('#style2').prop('disabled', true);
+      $('#style1').prop('disabled', false);
+      $('head').append($("<link id=\"css-style2\" rel=\"stylesheet\" href=\"{% static 'core/css/test-style.css' %}\">"));
+    });
+  </script>
+
 
   </body>
 </html>

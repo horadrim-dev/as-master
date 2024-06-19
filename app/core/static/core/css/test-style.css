@@ -1,0 +1,50 @@
+.main-banner__layer img {
+    display: none;
+}
+.main-banner__bg {
+    background-image: none !important;
+    background: rgb(136,200,255) !important;
+    background: linear-gradient(180deg, rgba(136,200,255,1) 0%, rgba(255,255,255,1) 100%) !important;
+}
+img.navbar-brand-logo {
+    content: url("/staticfiles/core/images/logo2.png") !important;
+    height: 60px !important;
+    position: absolute;
+    left: -50px;
+}
+.main-header .header-upper .logo-box {
+    width: 322px !important;
+}
+.navbar-brand-text { 
+    width: 250px;
+}
+.main-menu .navigation {
+    margin-left: 0;
+}
+.navbar-brand-title {
+    visibility: hidden;
+    position: relative;
+}
+.navbar-brand-title::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "АВТОШКОЛА МАСТЕР" !important;
+    font-size: 20px;
+    color: var(--theme-color);
+    font-weight: bold;
+}
+.navbar-brand-subtitle {
+    visibility: hidden;
+    position: relative;
+}
+.navbar-brand-subtitle::after {
+    visibility: visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "МЫ В ОТВЕТЕ ЗА ТЕХ КОГО НАУЧИЛИ" !important;
+    font-size: 12px;
+    font-weight: bold;
+}
