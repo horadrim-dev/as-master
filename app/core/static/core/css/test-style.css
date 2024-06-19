@@ -48,3 +48,24 @@ img.navbar-brand-logo {
     font-size: 12px;
     font-weight: bold;
 }
+footer.main-footer {
+    background: #5e77ff !important;
+}
+footer.main-footer .links-widget a {
+    color: #fff !important;
+}
+footer.main-footer .text-widget .text {
+    color: #fff !important;
+}
+footer.main-footer .contact-widget .text {
+    color: #fff !important;
+}
+footer.main-footer .about-widget ul.social-links a {
+    background-color: #345fc6 !important;
+}
+.footer-bottom {
+    background-color: #2b43c6 !important;
+}
+.footer-bottom .text {
+    display: none !important;
+}
