@@ -49,7 +49,7 @@ img.navbar-brand-logo {
     font-weight: bold;
 }
 footer.main-footer {
-    background: #5e77ff !important;
+    background: #815eff !important;
 }
 footer.main-footer .links-widget a {
     color: #fff !important;
@@ -63,9 +63,9 @@ footer.main-footer .contact-widget .text {
 footer.main-footer .about-widget ul.social-links a {
     background-color: #345fc6 !important;
 }
-.footer-bottom {
+/*.footer-bottom {
     background-color: #2b43c6 !important;
 }
 .footer-bottom .text {
     display: none !important;
-}
+}*/
