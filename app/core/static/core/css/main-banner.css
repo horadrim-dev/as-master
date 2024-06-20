@@ -369,7 +369,7 @@
   overflow: hidden;
 }
 .main-banner__sub-title {
-  color: var(--drivschol-text, #6D7076);
+  color: #1c1c1c;
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 33px;

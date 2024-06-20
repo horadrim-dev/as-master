@@ -49,23 +49,24 @@ img.navbar-brand-logo {
     font-weight: bold;
 }
 footer.main-footer {
-    background: #815eff !important;
+    background: linear-gradient(180deg, rgba(136, 200, 255, 1) 0%, rgba(255, 255, 255, 1) 80%) !important;
 }
 footer.main-footer .links-widget a {
-    color: #fff !important;
+    color: #000 !important;
 }
 footer.main-footer .text-widget .text {
-    color: #fff !important;
+    color: #000 !important;
 }
 footer.main-footer .contact-widget .text {
-    color: #fff !important;
+    color: #000 !important;
 }
 footer.main-footer .about-widget ul.social-links a {
     background-color: #345fc6 !important;
 }
-/*.footer-bottom {
-    background-color: #2b43c6 !important;
+.footer-bottom {
+    background-color: #fff !important;
+    border-top: 3px solid #fff;
 }
 .footer-bottom .text {
     display: none !important;
-}*/
+}
