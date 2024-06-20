@@ -57,7 +57,8 @@ footer.main-footer .links-widget a {
 footer.main-footer .text-widget .text {
     color: #000 !important;
 }
-footer.main-footer .contact-widget .text {
+footer.main-footer .contact-widget .text ,
+footer.main-footer .contact-widget .text a{
     color: #000 !important;
 }
 footer.main-footer .about-widget ul.social-links a {
