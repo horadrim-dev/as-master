@@ -1,6 +1,6 @@
-.main-banner__layer img {
+/* .main-banner__layer img {
     display: none;
-}
+} */
 .main-banner__bg {
     background-image: none !important;
     background: rgb(136,200,255) !important;
@@ -12,6 +12,14 @@ img.navbar-brand-logo {
     position: relative;
     margin-left: -60px;
 }
+ .main-banner__layer  {
+    overflow: unset;
+ }
+ .main-banner__layer img {
+    content: url("/staticfiles/core/images/gorod-bg.png") !important;
+    animation: none !important;
+    height: 685px;
+ }
 .main-header .header-upper .logo-box {
     width: 304px !important;
 }
