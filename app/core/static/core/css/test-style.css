@@ -92,3 +92,19 @@ section.page-title {
 .header-top ul.contact-info a {
     color: var(--theme-secondary) !important;
 }
+
+/* MOBILE MENU */
+.mobile-menu .navbar-brand-text {
+    width: unset;
+    margin-top: 0;
+}
+.mobile-menu img.navbar-brand-logo {
+    height: 40px !important;
+    margin-left: -10px;
+}
+.mobile-menu .navbar-brand-title::after {
+    font-size: 14px;
+}
+.mobile-menu .navbar-brand-subtitle::after {
+    font-size: 10px;
+}
