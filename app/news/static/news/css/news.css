@@ -89,13 +89,16 @@
     width: 100%;
     cursor: pointer;
 }
+#news-filter label:hover {
+    color: var(--theme-text-color);
+}
 #news-filter input[type="radio"]:checked + label::before {
   content: "\f105";
   font: normal normal normal 14px/1 'Font Awesome 5 Pro';
   font-size: inherit;
   text-rendering: auto;
   padding-right: 10px;
-  color: var(--theme-color);
+  color: var(--theme-secondary);
 }
 
 #news-filter .tagbox span {

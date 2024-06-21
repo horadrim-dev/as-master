@@ -101,13 +101,16 @@
     line-height: 20px;
     margin-bottom: 20px;
 }
+#docs-filter label:hover {
+    color: var(--theme-text-color);
+}
 #docs-filter input[type="radio"]:checked + label::before {
   content: "\f105";
   font: normal normal normal 14px/1 'Font Awesome 5 Pro';
   font-size: inherit;
   text-rendering: auto;
   padding-right: 10px;
-  color: var(--theme-color);
+  color: var(--theme-secondary);
 }
 
 #docs-filter .tagbox span {
@@ -220,6 +223,6 @@ ul.slides li .docs-item {
   color: var(--theme-secondary)
 }
 .docs-item.horizontal:hover {
-  background: var(--theme-color-lightest) !important;
+  background: var(--theme-secondary-light) !important;
   transition: all .5s;
 }

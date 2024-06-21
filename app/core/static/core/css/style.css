@@ -573,7 +573,7 @@ img {
     position: relative;
     background-color: #efefef;
     padding: 7.5px 0;
-    border-top: 3px solid var(--theme-color);
+    border-top: 3px solid var(--theme-secondary);
 }
 
 .header-top .inner-container {
@@ -635,7 +635,7 @@ img {
     vertical-align: middle;
     position: relative;
     top: 3px;
-    color: var(--theme-color);
+    color: var(--theme-secondary);
 }
 
 .social-icon {
@@ -652,7 +652,7 @@ img {
 }
 
 .social-icon li a {
-    color: #7d7d7d;
+    color: var(--theme-secondary);
     transition: .5s;
 }
 .social-icon li a:hover {
@@ -814,6 +814,7 @@ img {
     position: absolute;
     left: 0px;
     top: 100%;
+    margin-top: -1px;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -1065,10 +1066,10 @@ img {
     background-color: #f0f0f0;
 }
 
-.main-header .header-upper .contact-info:hover .icon {
+/* .main-header .header-upper .contact-info:hover .icon {
     color: #fff;
     background-color: var(--theme-color);
-}
+} */
 
 .main-header .header-upper .contact-info .icon:before {
     position: absolute;
@@ -1107,7 +1108,7 @@ img {
 }
 
 .main-header .header-upper .contact-info h4 {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 22px;
     color: #212121;
     font-weight: 500;
@@ -3199,7 +3200,6 @@ footer.main-footer .widgets-section {
 
 .text-widget {
     position: relative;
-    margin-left: -60px;
 }
 
 .text-widget .text {
@@ -4787,7 +4787,7 @@ section.error-section .text {
     display: inline-block;
     text-transform: capitalize;
     font-size: 20px;
-    color: var(--theme-text-color);
+    color: var(--theme-secondary);
     font-weight: 500;
     margin-bottom: 25px;
 }

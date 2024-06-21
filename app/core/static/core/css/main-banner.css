@@ -3,7 +3,6 @@
   --drivschol-heading-font: "Urbanist", sans-serif;
   --drivschol-special-font: "Alex Brush", cursive;
   --drivschol-fontawesome: "Font Awesome 5 free";
-  --theme-color: #EC2526;
   --theme-color-rgb:236, 37, 38;
   --drivschol-text: #6D7076;
   --drivschol-text-rgb: 109, 112, 118;
@@ -411,7 +410,7 @@
   }
 }
 .main-banner__title {
-  color: var(--theme-text-color);
+  color: var(--theme-color-dark);
   font-size: 70px;
   font-weight: 800;
   line-height: 90px;

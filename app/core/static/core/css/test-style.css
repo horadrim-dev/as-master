@@ -9,14 +9,15 @@
 img.navbar-brand-logo {
     content: url("/staticfiles/core/images/logo2.png") !important;
     height: 60px !important;
-    position: absolute;
-    left: -60px;
+    position: relative;
+    margin-left: -60px;
 }
 .main-header .header-upper .logo-box {
     width: 304px !important;
 }
 .navbar-brand-text { 
     width: 250px;
+    margin-top: 16px;
 }
 .main-menu .navigation {
     margin-left: 0;
@@ -31,9 +32,14 @@ img.navbar-brand-logo {
     top: 0;
     left: 0;
     content: "АВТОШКОЛА МАСТЕР" !important;
-    font-size: 20px;
+    font-size: 22px;
     color: var(--theme-color);
     font-weight: bold;
+    border-bottom: 3px solid transparent !important;
+    border-image: linear-gradient(to right, #3e92dc 0%, #ec2526 100%);
+    border-image-slice: 100%;
+    border-image-slice: 1;
+    line-height: 16px;
 }
 .navbar-brand-subtitle {
     visibility: hidden;
@@ -44,9 +50,10 @@ img.navbar-brand-logo {
     position: absolute;
     top: 0;
     left: 0;
-    content: "МЫ В ОТВЕТЕ ЗА ТЕХ КОГО НАУЧИЛИ" !important;
-    font-size: 12px;
+    content: "Мы в ответе за тех кого научили" !important;
+    font-size: 15px;
     font-weight: bold;
+    line-height: 18px;
 }
 footer.main-footer {
     background: linear-gradient(180deg, rgba(136, 200, 255, 1) 0%, rgba(255, 255, 255, 1) 80%) !important;
@@ -57,8 +64,8 @@ footer.main-footer .links-widget a {
 footer.main-footer .text-widget .text {
     color: #000 !important;
 }
-footer.main-footer .contact-widget .text ,
-footer.main-footer .contact-widget .text a{
+footer.main-footer .contact-widget .text,
+footer.main-footer .contact-widget .text a {
     color: #000 !important;
 }
 footer.main-footer .about-widget ul.social-links a {
@@ -70,4 +77,18 @@ footer.main-footer .about-widget ul.social-links a {
 }
 .footer-bottom .text {
     display: none !important;
+}
+footer .text i {
+    color: #345fc6;
+}
+section.page-title {
+    background-image: none !important;
+    background: linear-gradient(180deg, rgba(136,200,255,1) 0%, rgba(255,255,255,1) 80%) !important;
+}
+.header-top {
+    background-color: #91ccff !important;
+}
+.header-top ul.contact-info li,
+.header-top ul.contact-info a {
+    color: var(--theme-secondary) !important;
 }

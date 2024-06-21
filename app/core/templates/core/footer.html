@@ -48,7 +48,25 @@
             <div class="row clearfix">
                 
                 <!--Column-->
-                <div class="column col-lg-2 col-md-6">
+
+                <!--Column-->
+                <div class="column col-lg-3 col-md-6">
+                    <div class="widget links-widget">
+                        <div class="widget-content">
+                            <ul>
+                                {% show_menu 0 0 100 100 %}
+                            </ul>                                        
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Column-->
+                <div class="column col-lg-5 col-md-6">
+                    <div class="widget text-widget">                        
+                        <div class="widget-content">
+                            <div class="text">{{ site_settings.address }}</div>
+                        </div>
+                    </div>
                     <div class="widget about-widget">
                         <ul class="social-links">
                             {% for social in site_settings.socials %}
@@ -63,31 +81,11 @@
                 </div>
 
                 <!--Column-->
-                <div class="column col-lg-3 col-md-6">
-                    <div class="widget links-widget">
-                        <div class="widget-content">
-                            <ul>
-                                {% show_menu 0 0 100 100 %}
-                            </ul>                                        
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Column-->
                 <div class="column col-lg-4 col-md-6">
-                    <div class="widget text-widget">                        
-                        <div class="widget-content">
-                            <div class="text">{{ site_settings.address }}</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Column-->
-                <div class="column col-lg-3 col-md-6">
                     <div class="widget contact-widget">                        
                         <div class="widget-content">
                             <div class="text">
-                                {{ site_settings.phone }}
+                                <i class="fa fa-phone"></i> {{ site_settings.phone }}
                                 <br>
                                 <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
                                 <br>
