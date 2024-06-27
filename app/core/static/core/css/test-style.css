@@ -14,6 +14,8 @@ img.navbar-brand-logo {
 }
  .main-banner__layer  {
     overflow: unset;
+    width: unset;
+    max-width: 60% !important;
  }
  .main-banner__layer img {
     content: url("/staticfiles/core/images/gorod-bg.png") !important;
