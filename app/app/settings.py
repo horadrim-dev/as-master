@@ -22,10 +22,7 @@ django.utils.translation.ugettext_lazy = django.utils.translation.gettext_lazy
 django.utils.translation.ugettext = django.utils.translation.gettext
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Initialise environment variables
@@ -43,11 +40,8 @@ environ.Env.read_env()
 
 SECRET_KEY = env('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-# print(DEBUG)
 
-# ALLOWED_HOSTS = ['localhost']
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 if env('CSRF_TRUSTED_ORIGINS'):
@@ -103,33 +97,6 @@ INSTALLED_APPS = [
     # 'celery_haystack',
 
 
-    # 'cms_search', 
-    # 'aldryn_search', NOT WORKING WITH DJANGO > 4.0 ANYMORE
-
-    # 'taggit_autosuggest',
-    # #### ALDRYN  you will probably need to add these
-    # 'aldryn_apphooks_config',
-    # 'aldryn_categories',
-    # 'aldryn_common',
-    # 'aldryn_newsblog',
-    # 'aldryn_people',
-    # 'aldryn_translation_tools',
-    # 'parler',
-    # 'sortedm2m',
-    # 'taggit',
-    ####
-
-    ### DJANGOCMS BLOG
-    # 'filer',
-    # 'easy_thumbnails',
-    # 'aldryn_apphooks_config',
-    # 'parler',
-    # 'taggit',
-    # 'taggit_autosuggest',
-    # 'meta',
-    # 'sortedm2m',
-    # 'djangocms_blog',
-    ############
     'core',
     'background_section',
     # 'breadcrumbs',
@@ -154,7 +121,6 @@ INSTALLED_APPS = [
     'prices',
     'djangocms_animated_numbers',
     # 'cmsplugin_contact'
-    # 'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -286,9 +252,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "mediafiles")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-####### django-cms requires
+# django-cms requires
 LANGUAGES = [
-    #  ('ru-RU', 'Russian'),
      ('ru', 'Russian'),
     #  ('en', 'English'),
 ]
@@ -337,7 +302,6 @@ PARLER_LANGUAGES = {
     # ),
     'default': {
         'fallbacks': ['ru'],
-        # 'fallbacks': ['en', 'it', 'fr'],
     }
 }
 CKEDITOR_SETTINGS = {
