@@ -130,3 +130,7 @@ def prepare_tag_name(tagname:str):
 @register.filter
 def get_type(value):
     return type(value)
+
+@register.filter
+def digits_only(value : str):
+    return ''.join(filter(str.isdigit, value))

@@ -10,7 +10,7 @@ from .models import ReviewsPlugin
 class ReviewsPluginPublisher(CMSPluginBase):
     model = ReviewsPlugin
     name = "Отзывы"
-    render_template = "reviews.html"
+    render_template = "reviews/reviews.html"
     cache = True
 
     def render(self, context, instance, placeholder):

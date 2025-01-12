@@ -23,7 +23,8 @@ img.navbar-brand-logo {
     height: 685px;
  }
 .main-header .header-upper .logo-box {
-    width: 304px !important;
+    width: 301px !important;
+    margin-left: 50px;
 }
 .navbar-brand-text { 
     width: 250px;
@@ -92,8 +93,8 @@ footer .text i {
     color: #345fc6;
 }
 section.page-title {
-    background-image: none !important;
-    background: linear-gradient(180deg, rgba(136,200,255,1) 0%, rgba(255,255,255,1) 80%) !important;
+    /* background-image: none !important;
+    background: linear-gradient(180deg, rgba(136,200,255,1) 0%, rgba(255,255,255,1) 80%) !important; */
 }
 .header-top {
     background-color: #91ccff !important;

@@ -32,10 +32,10 @@
         navText: ['<span class="bi bi-arrow-left">', '<span class="bi bi-arrow-right">'],
         responsive: { 0 :{ items: 1 }, 
                     480 :{ items : 1 }, 
-                    600 :{ items : 2 }, 
-                    768 :{ items : 2 }, 
-                    992:{ items : 2 }, 
-                    1200:{ items : 2 }},
+                    600 :{ items : 3 }, 
+                    768 :{ items : 3 }, 
+                    992:{ items : 3 }, 
+                    1200:{ items : 3 }},
     });
 	});
 </script>
@@ -59,9 +59,12 @@
         </div>
         {% endfor %}
       </div>
-      <div class="text-center">
-        <a href="#" class="btn-style-two ">Оставить отзыв</a>
-      </div>
+        {% url 'reviews:index' as reviews_url %}
+        {% if reviews_url %} {# Если вьюха еще не зарегистрирована - кнопка не будет показана #}
+        <div class="text-center">
+          <a href="{{ reviews_url }}" class="btn-style-two">Оставить отзыв</a>
+        </div>
+        {% endif %}
     </div>
   </div>
 </div>

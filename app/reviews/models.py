@@ -11,7 +11,7 @@ class ReviewsPlugin(CMSPlugin):
 
 
     def get_reviews(self):
-        return Review.objects.all()
+        return Review.objects.filter(published=True)[:20]
 
     def generate_id(self):
         return str(uuid.uuid4().fields[-1])[:7]
@@ -34,8 +34,10 @@ class Review(models.Model):
     #         Reviews,
     #         on_delete=models.CASCADE,
     #     )
+    published = models.BooleanField("Опубликовано", default=False)
     author = models.CharField("Автор", max_length=255, default="")
     text = models.TextField("Содержимое", default="")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     # photo = FilerImageField(
     #     verbose_name=_('Фото автора'),
     #     on_delete=models.CASCADE, 
@@ -47,5 +49,6 @@ class Review(models.Model):
         return self.author
 
     class Meta:
+        ordering = ['-created_at']
         verbose_name = "отзыв"
         verbose_name_plural = "отзывы"

@@ -1,4 +1,4 @@
-{% load static menu_tags easy_thumbnails_tags sekizai_tags  %}
+{% load static menu_tags easy_thumbnails_tags sekizai_tags core_tags %}
 
 {% comment %} <header class="fixed-top scroll-change" data-menu-height="{% if request.user.is_authenticated or "edit" in request.GET %}199{% else %}153{% endif %}">
     <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
@@ -149,11 +149,13 @@
                 </div>
                 <div class="navbar-right">
                     <div class="contact-info">
-                        <div class="icon"><i class="flaticon-phone-ringing"></i></div>
-                        <div class="content">
-                            {% comment %} <h5>Позвоните нам</h5> {% endcomment %}
-                            <h4>{{ site_settings.phone }}</h4>
-                        </div>
+                        <a href="tel:+{{ site_settings.phone|digits_only }}" style="display: contents;">
+                            <div class="icon"><i class="flaticon-phone-ringing"></i></div>
+                            <div class="content">
+                                {% comment %} <h5>Позвоните нам</h5> {% endcomment %}
+                                <h4>{{ site_settings.phone }}</h4>
+                            </div>
+                        </a>
                     </div>
                     {% comment %} <button type="button" class="theme-btn search-toggler"><i class="flaticon-magnifying-glass"></i></button> {% endcomment %}
                 </div>                      

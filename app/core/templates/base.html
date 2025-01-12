@@ -25,6 +25,8 @@
 
       {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/app.css' %}">{% endaddtoblock %}
 
+      {% addtoblock "css" %}<link rel="stylesheet" href="{% static 'core/css/pravki.css' %}">{% endaddtoblock %}
+      
       
       
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,7 +170,7 @@
     {% endif %}
 
   {# DEBUG PANEL #}
-  <div style="position: fixed;right: 0;top: 30%;z-index: 999999999;text-align: right;">
+  {% comment %} <div style="position: fixed;right: 0;top: 30%;z-index: 999999999;text-align: right;">
     <ul>
       <li>
         <button id="style1" disabled="true">Стиль №1</button>
@@ -187,9 +189,9 @@
     $('#style2').on("click", function() {
       $('#style2').prop('disabled', true);
       $('#style1').prop('disabled', false);
-      $('head').append($("<link id=\"css-style2\" rel=\"stylesheet\" href=\"{% static 'core/css/test-style.css' %}\">"));
+      $('head').append($("<link id=\"css-style2\" rel=\"stylesheet\" href=\"{% static 'core/css/pravki.css' %}\">"));
     });
-  </script>
+  </script> {% endcomment %}
 
 
   </body>

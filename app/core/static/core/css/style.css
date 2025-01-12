@@ -1041,18 +1041,17 @@ img {
     display: none;
 }
 
-.main-header .header-upper .contact-info {
+.contact-info {
     position: relative;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     margin-right: 30px;
     padding-right: 30px;
-    border-right: 1px solid #eee;
     margin-left: 20px;
 }
 
-.main-header .header-upper .contact-info .icon {
+.contact-info .icon {
     position: relative;
     font-size: 24px;
     text-align: center;
