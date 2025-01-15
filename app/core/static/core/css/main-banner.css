@@ -310,9 +310,11 @@
 .main-banner__layer {
   position: absolute;
   right: -7px;
-  top: -6px;
+  /* top: -6px; */
+  bottom: 30px;
   overflow: hidden;
-  width: 52%;
+  /* width: 52%; */
+  width: 100%;
   opacity: 0;
   transition: transform 1000ms ease, opacity 1000ms ease;
   /* transform: translatex(50%) scalex(2); */
