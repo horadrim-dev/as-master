@@ -63,3 +63,8 @@
     align-items: center;
     padding-bottom: 10px;
 }
+@media only screen and (max-width:500px) {
+    .steps .step .step-label {
+        zoom: .5;
+    }
+}
