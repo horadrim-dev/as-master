@@ -7,7 +7,7 @@
     background: linear-gradient(180deg, rgba(136,200,255,1) 0%, rgba(255,255,255,1) 100%) !important;
 }
 img.navbar-brand-logo {
-    content: url("/staticfiles/core/images/logo3.png") !important;
+    content: url("/staticfiles/core/images/logo2.png") !important;
     height: 60px !important;
     position: relative;
     margin-left: -60px;
