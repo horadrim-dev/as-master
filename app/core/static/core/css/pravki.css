@@ -11,6 +11,16 @@ img.navbar-brand-logo {
     height: 60px !important;
     position: relative;
     margin-left: -60px;
+    float: left;
+}
+@media only screen and (max-width:500px) {
+    img.navbar-brand-logo {
+        display: none;
+    }
+    .main-header .header-upper .logo-box {
+        margin-left: 0 !important;
+        width: 250px !important;
+    }
 }
  .main-banner__layer  {
     overflow: unset;
@@ -23,12 +33,13 @@ img.navbar-brand-logo {
     height: 685px;
  }
 .main-header .header-upper .logo-box {
-    width: 301px !important;
+    width: 301px;
     margin-left: 50px;
 }
 .navbar-brand-text { 
     width: 250px;
     margin-top: 16px;
+    float: left;
 }
 .main-menu .navigation {
     margin-left: 0;
@@ -118,4 +129,9 @@ section.page-title {
 }
 .mobile-menu .navbar-brand-subtitle::after {
     font-size: 10px;
+}
+@media only screen and (max-width:1381px) {
+    .main-header .header-upper .navbar-right {
+        display: none;
+    }
 }

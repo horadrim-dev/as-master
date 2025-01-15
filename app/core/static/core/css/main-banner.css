@@ -292,7 +292,7 @@
 }
 @media (max-width: 767px) {
   .main-banner__item {
-    padding-top: 160px;
+    padding-top: 30px;
     padding-bottom: 140px;
   }
 }
