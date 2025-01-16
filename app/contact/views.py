@@ -79,7 +79,6 @@ class ContactWizard(CookieWizardView):
                                      uploaded_file.read(), 
                                      uploaded_file.content_type)
         email_message.content_subtype = content_subtype
-        assert False, ("before send", email_message)
         email_message.send(fail_silently=False)
 
     def done(self, form_list, **kwargs):
