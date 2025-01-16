@@ -109,6 +109,7 @@ class ContactWizard(CookieWizardView):
         #                data['attachment_3']]
 
         # отправляем email
+        assert False, "before send"
         self.send_email(cleaned_data=data, attachments=attachments)
         
         # рендерим страницу успешной регистрации обращения
