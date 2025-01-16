@@ -25,8 +25,8 @@ class LeaveReviewWizard(CookieWizardView):
     # form_list = [AgreementForm, UserDataForm, MessageForm]
     form_list = [LeaveReviewForm,]
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'temp'))
-    # subject_template = "contact/email_subject.html"
-    # email_template = "contact/email_body.html"
+    subject_template = "reviews/email_subject.html"
+    email_template = "reviews/email_body.html"
 
     # использовал разные шаблоны для разных форм get_templates_names()
     # template_name = 'contact/form.html'
@@ -47,36 +47,36 @@ class LeaveReviewWizard(CookieWizardView):
         })
         return context 
 
-    # def send_email(self, cleaned_data, attachments=None):
-    #     '''Функция рендерит данные в шаблон и отправляет email'''
+    def send_email(self, cleaned_data, attachments=None):
+        '''Функция рендерит данные в шаблон и отправляет email'''
 
-    #     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL')
-    #     # recipient_list не работает по невыясненным причинам, поэтому адреса из 
-    #     # конфигурации удалены. Список получателей указывается на хостинге в 
-    #     # поле "Слать копии писем на адреса"
-    #     recipient_list = getattr(settings, 'RECIPIENTS_EMAIL') # + self.settings.recipient_list
+        from_email = getattr(settings, 'DEFAULT_FROM_EMAIL')
+        # recipient_list не работает по невыясненным причинам, поэтому адреса из 
+        # конфигурации удалены. Список получателей указывается на хостинге в 
+        # поле "Слать копии писем на адреса"
+        recipient_list = getattr(settings, 'RECIPIENTS_EMAIL') # + self.settings.recipient_list
 
-    #     content_subtype = 'html' # 'plain'
+        content_subtype = 'html' # 'plain'
 
-    #     email_message = EmailMessage(
-    #         subject=render_to_string(self.subject_template, {
-    #                 'data': cleaned_data,
-    #         }).splitlines()[0],
-    #         body=render_to_string(self.email_template, {
-    #             'data': cleaned_data,
-    #             'from_email': from_email,
-    #         }),
-    #         from_email=from_email,
-    #         to=recipient_list,
-    #         # headers={'Reply-To': form.cleaned_data['email']},
-    #     )
-    #     for uploaded_file in attachments:
-    #         if uploaded_file:
-    #             email_message.attach(uploaded_file.name, 
-    #                                  uploaded_file.read(), 
-    #                                  uploaded_file.content_type)
-    #     email_message.content_subtype = content_subtype
-    #     email_message.send(fail_silently=False)
+        email_message = EmailMessage(
+            subject=render_to_string(self.subject_template, {
+                    'data': cleaned_data,
+            }).splitlines()[0],
+            body=render_to_string(self.email_template, {
+                'data': cleaned_data,
+                'from_email': from_email,
+            }),
+            from_email=from_email,
+            to=recipient_list,
+            # headers={'Reply-To': form.cleaned_data['email']},
+        )
+        for uploaded_file in attachments:
+            if uploaded_file:
+                email_message.attach(uploaded_file.name, 
+                                     uploaded_file.read(), 
+                                     uploaded_file.content_type)
+        email_message.content_subtype = content_subtype
+        email_message.send(fail_silently=False)
 
     def done(self, form_list, **kwargs):
         '''
@@ -104,6 +104,7 @@ class LeaveReviewWizard(CookieWizardView):
 
         # отправляем email
         # self.send_email(cleaned_data=data, attachments=attachments)
+        self.send_email(cleaned_data=data)
         
         # рендерим страницу успешной регистрации обращения
         return render(self.request, 'reviews/review_sent_success.html', {
