@@ -87,11 +87,12 @@ class ContactWizard(CookieWizardView):
         Собираем очищенные данные всех форм, регистрируем обращение и
         отправляем по электронной почте.
         '''
-        agreement_form_data = form_list[0].cleaned_data
-        userdata_form_data = form_list[1].cleaned_data
-        message_form_data = form_list[2].cleaned_data
+        # agreement_form_data = form_list[0].cleaned_data
+        userdata_form_data = form_list[0].cleaned_data
+        message_form_data = form_list[1].cleaned_data
         # аккумулируем данные, одинаковых полей нет, значит ничего не потеряем
-        data = {**agreement_form_data, **userdata_form_data, **message_form_data}
+        # data = {**agreement_form_data, **userdata_form_data, **message_form_data}
+        data = {**userdata_form_data, **message_form_data}
 
         # создаем объект обращения и получаем его номер регистрации
         appeal = Appeal() # appeal = Appeal(subject=data['subject'])
