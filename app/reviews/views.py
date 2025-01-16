@@ -47,7 +47,7 @@ class LeaveReviewWizard(CookieWizardView):
         })
         return context 
 
-    def send_email(self, cleaned_data, attachments=None):
+    def send_email(self, cleaned_data, attachments=[]):
         '''Функция рендерит данные в шаблон и отправляет email'''
 
         from_email = getattr(settings, 'DEFAULT_FROM_EMAIL')
