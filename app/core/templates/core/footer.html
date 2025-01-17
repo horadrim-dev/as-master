@@ -50,7 +50,7 @@
                 <!--Column-->
 
                 <!--Column-->
-                <div class="column col-lg-3 col-md-6">
+                <div class="column col-md-6 text-center">
                     <div class="widget links-widget">
                         <div class="widget-content">
                             <ul>
@@ -61,7 +61,18 @@
                 </div>
                 
                 <!--Column-->
-                <div class="column col-lg-5 col-md-6">
+                <div class="column col-md-6">
+                    <div class="widget contact-widget">                        
+                        <div class="widget-content">
+                            <div class="text">
+                                <i class="fa fa-phone"></i> {{ site_settings.phone }}
+                                <br>
+                                <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
+                                <br>
+                                <i class="flaticon-clock"></i> {{ site_settings.schedule }}
+                            </div>
+                        </div>
+                    </div>
                     <div class="widget text-widget">                        
                         <div class="widget-content">
                             <div class="text">{{ site_settings.address }}</div>
@@ -77,21 +88,6 @@
                             </li>
                             {% endfor %}
                         </ul>
-                    </div>
-                </div>
-
-                <!--Column-->
-                <div class="column col-lg-4 col-md-6">
-                    <div class="widget contact-widget">                        
-                        <div class="widget-content">
-                            <div class="text">
-                                <i class="fa fa-phone"></i> {{ site_settings.phone }}
-                                <br>
-                                <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
-                                <br>
-                                <i class="flaticon-clock"></i> {{ site_settings.schedule }}
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
