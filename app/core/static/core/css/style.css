@@ -3148,6 +3148,7 @@ footer.main-footer {
 footer.main-footer .widgets-section {
     position: relative;
     margin-bottom: 90px;
+    padding: 0 50px;
 }
 
 .about-widget {
@@ -3218,7 +3219,7 @@ footer.main-footer .widgets-section {
     position: relative;
     background-color: #343434;
     border-top: 3px solid var(--theme-color);
-    padding-top: 30px;
+    /* padding-top: 30px; */
 }
 
 .footer-bottom .wrapper-box {
@@ -3246,6 +3247,7 @@ footer.main-footer .widgets-section {
 
 .footer-bottom .logo {
     margin-bottom: 30px;
+    margin-left: 50px;
 }
 
 .footer-bottom .footer-menu {
