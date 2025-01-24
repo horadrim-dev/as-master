@@ -13,6 +13,9 @@ img.navbar-brand-logo {
     margin-left: -60px;
     float: left;
 }
+footer img.navbar-brand-logo {
+    margin-left: 0;
+}
 @media only screen and (max-width:500px) {
     img.navbar-brand-logo {
         display: none;
@@ -78,7 +81,11 @@ img.navbar-brand-logo {
     line-height: 18px;
 }
 footer.main-footer {
+    background: none !important;
+}
+footer .footer-top {
     background: linear-gradient(180deg, rgba(136, 200, 255, 1) 0%, rgba(255, 255, 255, 1) 80%) !important;
+    padding-top: 60px;
 }
 footer.main-footer .links-widget a {
     color: #000 !important;

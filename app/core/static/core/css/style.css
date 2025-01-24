@@ -3142,12 +3142,12 @@ section.courses-section.style-two:before {
 footer.main-footer {
     background: #212121;
     position: relative;
-    padding: 120px 0 0;
+    /* padding: 120px 0 0; */
 }
 
 footer.main-footer .widgets-section {
     position: relative;
-    margin-bottom: 90px;
+    /* margin-bottom: 90px; */
     padding: 0 50px;
 }
 
@@ -3246,7 +3246,7 @@ footer.main-footer .widgets-section {
 }
 
 .footer-bottom .logo {
-    margin-bottom: 30px;
+    margin-bottom: 120px;
     margin-left: 50px;
 }
 

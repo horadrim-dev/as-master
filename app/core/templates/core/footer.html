@@ -42,59 +42,61 @@
 </footer> {% endcomment %}
 
 <footer class="main-footer">
-    <div class="auto-container">
-        <!--Widgets Section-->
-        <div class="widgets-section">
-            <div class="row clearfix">
-                
-                <!--Column-->
+    <div class="footer-top">
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row clearfix">
+                    
+                    <!--Column-->
 
-                <!--Column-->
-                <div class="column col-md-6 text-md-center text-uppercase">
-                    <div class="widget links-widget">
-                        <div class="widget-content">
-                            <ul>
-                                {% show_menu 0 0 100 100 %}
-                            </ul>                                        
-                        </div>
-                    </div>
-                </div>
-                
-                <!--Column-->
-                <div class="column col-md-6">
-                    <div class="widget contact-widget">                        
-                        <div class="widget-content">
-                            <div class="text">
-                                <div>
-                                    <i class="fa fa-phone"></i> {{ site_settings.phone }}
-                                </div>
-                                <div>
-                                    <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
-                                </div>
-                                <div>
-                                    <i class="flaticon-clock"></i> {{ site_settings.schedule }}
-                                </div>
+                    <!--Column-->
+                    <div class="column col-md-6 text-uppercase">
+                        <div class="widget links-widget">
+                            <div class="widget-content">
+                                <ul>
+                                    {% show_menu 0 0 100 100 %}
+                                </ul>                                        
                             </div>
                         </div>
                     </div>
-                    <div class="widget text-widget">                        
-                        <div class="widget-content">
-                            <div class="text">{{ site_settings.address }}</div>
+                    
+                    <!--Column-->
+                    <div class="column col-md-6">
+                        <div class="widget contact-widget">                        
+                            <div class="widget-content">
+                                <div class="text">
+                                    <div>
+                                        <i class="fa fa-phone"></i> {{ site_settings.phone }}
+                                    </div>
+                                    <div>
+                                        <a href="mailto:{{ site_settings.email }}"><i class="flaticon-email"></i> {{ site_settings.email }}</a>
+                                    </div>
+                                    <div>
+                                        <i class="flaticon-clock"></i> {{ site_settings.schedule }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget text-widget">                        
+                            <div class="widget-content">
+                                <div class="text">{{ site_settings.address }}</div>
+                            </div>
+                        </div>
+                        <div class="widget about-widget">
+                            <ul class="social-links">
+                                {% for social in site_settings.socials %}
+                                <li>
+                                    <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
+                                        <i class="fab fa-{{social.icon}}"></i>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                     </div>
-                    <div class="widget about-widget">
-                        <ul class="social-links">
-                            {% for social in site_settings.socials %}
-                            <li>
-                                <a target="_blank" href="{{social.url}}" alt="{{social.text}}">
-                                    <i class="fab fa-{{social.icon}}"></i>
-                                </a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
+                    
                 </div>
-                
             </div>
         </div>
     </div>
@@ -102,9 +104,9 @@
     <div class="footer-bottom">
         <div class="auto-container">
             <div class="wrapper-box">
-                <div class="copyright">
+                {% comment %} <div class="copyright">
                     <div class="text">© Copyright 2024</div>
-                </div>
+                </div> {% endcomment %}
                 <div class="logo">
                     <a href="/">
                         {% include 'core/brand.html' %}
