@@ -1,7 +1,7 @@
 from django import forms
 from .models import Review
 from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
+from captcha.widgets import ReCaptchaV2Checkbox, ReCaptchaV3
 
 class ReviewForm(forms.ModelForm):
     class Meta:
@@ -22,7 +22,14 @@ class LeaveReviewForm(forms.Form):
                                      "placeholder":"Поделитесь впечатлениями"})
         )
 
-    captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox())
+    captcha = ReCaptchaField(
+        # widget=ReCaptchaV2Checkbox()
+        widget=ReCaptchaV3(
+            attrs={
+                'required_score':0.85,
+            }
+        )
+        )
 
     # def __init__(self, **kwargs):
     #     super().__init__(**kwargs)
