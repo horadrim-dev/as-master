@@ -11,8 +11,8 @@ from phonenumber_field.widgets import RegionalPhoneNumberWidget
 from .models import ContactSettings
 from filer.fields.file import FilerFileField
 from django.core.validators import FileExtensionValidator
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox
 
 
 class ContactForm(forms.Form):

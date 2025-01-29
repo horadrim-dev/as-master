@@ -86,7 +86,8 @@ INSTALLED_APPS = [
     'taggit',
     'taggit_labels',
     "phonenumber_field",
-    "captcha",
+    # "captcha",
+    "django_recaptcha",
     # 'haystack',  # search engine
     # 'django_prometheus',
     'corsheaders',

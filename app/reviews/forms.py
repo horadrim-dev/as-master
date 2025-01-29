@@ -1,7 +1,7 @@
 from django import forms
 from .models import Review
-from captcha.fields import ReCaptchaField
-from captcha.widgets import ReCaptchaV2Checkbox, ReCaptchaV3
+from django_recaptcha.fields import ReCaptchaField
+from django_recaptcha.widgets import ReCaptchaV2Checkbox, ReCaptchaV3
 
 class ReviewForm(forms.ModelForm):
     class Meta:
