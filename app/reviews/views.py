@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import permission_required
 from django.utils.decorators import method_decorator
 from django.urls import reverse
 from formtools.wizard.views import CookieWizardView
-from .forms import LeaveReviewForm
+from .forms import LeaveReviewForm, UserDataForm
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import os
@@ -16,14 +16,17 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string, select_template
 from .models import Review
 
-FORM_TEMPLATES = {0: 'reviews/form_leavereview.html',}
+FORM_TEMPLATES = {
+    0: 'reviews/form_userdata.html',
+    1: 'reviews/form_leavereview.html',
+}
 # FORM_TEMPLATES = {0: 'contact/form_agreement.html',
 #                   1: 'contact/form_userdata.html',
 #                   2: 'contact/form_message.html'}
 class LeaveReviewWizard(CookieWizardView):
 
     # form_list = [AgreementForm, UserDataForm, MessageForm]
-    form_list = [LeaveReviewForm,]
+    form_list = [UserDataForm, LeaveReviewForm]
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'temp'))
     subject_template = "reviews/email_subject.html"
     email_template = "reviews/email_body.html"
@@ -84,9 +87,10 @@ class LeaveReviewWizard(CookieWizardView):
         Собираем очищенные данные всех форм, регистрируем обращение и
         отправляем по электронной почте.
         '''
-        form_data = form_list[0].cleaned_data
+        userdata_form_data = form_list[0].cleaned_data
+        review_form_data = form_list[1].cleaned_data
         # аккумулируем данные, одинаковых полей нет, значит ничего не потеряем
-        data = {**form_data,}
+        data = {**userdata_form_data, **review_form_data}
 
         # создаем объект обращения и получаем его номер регистрации
         review = Review(

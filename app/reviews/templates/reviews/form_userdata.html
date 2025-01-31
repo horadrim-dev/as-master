@@ -7,13 +7,13 @@
             <div class="col-md-12">
                 <div class="row align-items-center">
                     {% comment %} <div class="col-sm-3 text-right">
-                        <p class="field-label {% if form.text.field.required %}required{% endif %}">
-                            {{ form.text.label_tag }}
-                            {% if form.text.field.required %}<i class="required"></i>{% endif %}
+                        <p class="field-label {% if form.name.field.required %}required{% endif %}">
+                            {{ form.name.label_tag }}
+                            {% if form.name.field.required %}<i class="required"></i>{% endif %}
                         </p>
                     </div>
                     <div class="col-sm-9"> {% endcomment %}
-                        {{ form.text }}{{ form.text.errors }}
+                        {{ form.author}}{{ form.author.errors }}
                     {% comment %} </div> {% endcomment %}
                 </div>
             </div>
@@ -28,7 +28,7 @@
             {% endif %}
         </div>
         <div class="col-sm-10"> {% endcomment %}
-            <input type="submit" value="Отправить" class="btn btn-lg btn-primary w-100"/>
+            <input type="submit" value="Далее" class="btn btn-lg btn-primary w-100"/>
         {% comment %} </div> {% endcomment %}
     </div>
     {% comment %} <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button> {% endcomment %}
