@@ -10,7 +10,7 @@
   <div class="row">
     {% for obj in object_list %}
 
-      <div class="news-maso-item col-md-4 col-sm-6">
+      <div class="news-maso-item col-sm-6 col-md-4 ">
         {% render_model_block obj %}
           {% include 'news/includes/post.item.vertical.html' %}
         {% endrender_model_block %}
